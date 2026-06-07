@@ -1,5 +1,4 @@
 # Docker安装Server
-
 version: '3'
 services:
   xiaozhi-esp32-server:
