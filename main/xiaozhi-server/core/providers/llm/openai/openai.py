@@ -116,6 +116,10 @@ class LLMProvider(LLMProviderBase):
         # 禁用思考模式
         self._apply_thinking_disabled(request_params)
 
+        logger.bind(tag=TAG).info(
+            f"[LLM→Java] url={self.base_url}, user={request_params.get('user')}, "
+            f"model={request_params.get('model')}, msgs={len(request_params.get('messages', []))}"
+        )
         responses = self.client.chat.completions.create(**request_params)
 
         is_active = True
@@ -166,6 +170,10 @@ class LLMProvider(LLMProviderBase):
         # 禁用思考模式
         self._apply_thinking_disabled(request_params)
 
+        logger.bind(tag=TAG).info(
+            f"[LLM→Java/fn] url={self.base_url}, user={request_params.get('user')}, "
+            f"model={request_params.get('model')}, msgs={len(request_params.get('messages', []))}"
+        )
         stream = self.client.chat.completions.create(**request_params)
 
         try:
