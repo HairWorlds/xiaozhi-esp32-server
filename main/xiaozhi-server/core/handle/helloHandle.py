@@ -41,6 +41,12 @@ _wakeup_response_lock = asyncio.Lock()
 
 async def handleHelloMessage(conn: "ConnectionHandler", msg_json):
     """处理hello消息"""
+    # 从 hello 消息提取设备ID（数字人/Web客户端通过消息体传递MAC）
+    hello_device_id = msg_json.get("device_id") or msg_json.get("device_mac")
+    if hello_device_id and not conn.device_id:
+        conn.device_id = hello_device_id
+        conn.logger.bind(tag=TAG).info(f"从 hello 消息获取设备ID: {hello_device_id}")
+
     audio_params = msg_json.get("audio_params")
     if audio_params:
         format = audio_params.get("format")
