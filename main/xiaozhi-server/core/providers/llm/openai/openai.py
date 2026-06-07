@@ -109,6 +109,10 @@ class LLMProvider(LLMProviderBase):
             if value is not None:
                 request_params[key] = value
 
+        user = kwargs.get("user") or session_id
+        if user:
+            request_params["user"] = user
+
         # 禁用思考模式
         self._apply_thinking_disabled(request_params)
 
@@ -154,6 +158,10 @@ class LLMProvider(LLMProviderBase):
         for key, value in optional_params.items():
             if value is not None:
                 request_params[key] = value
+
+        user = kwargs.get("user") or session_id
+        if user:
+            request_params["user"] = user
 
         # 禁用思考模式
         self._apply_thinking_disabled(request_params)

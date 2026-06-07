@@ -984,6 +984,7 @@ class ConnectionHandler:
                         memory_str, self.config.get("voiceprint", {})
                     ),
                     functions=functions,
+                    user=self.device_id,
                 )
             else:
                 llm_responses = self.llm.response(
@@ -991,6 +992,7 @@ class ConnectionHandler:
                     self.dialogue.get_llm_dialogue_with_memory(
                         memory_str, self.config.get("voiceprint", {})
                     ),
+                    user=self.device_id,
                 )
         except Exception as e:
             self.logger.bind(tag=TAG).error(f"LLM 处理出错 {query}: {e}")
