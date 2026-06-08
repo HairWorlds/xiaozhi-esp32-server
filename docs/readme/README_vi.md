@@ -66,7 +66,7 @@ Muốn xem hiệu quả sử dụng? Hãy xem video 🎥
     <td>
       <a href="https://www.bilibili.com/video/BV1WEcxzFEAT" target="_blank">
         <picture>
-          <img alt="小智数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
+          <img alt="小鹿数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
       </a>
     </td>
     <td>
@@ -153,7 +153,7 @@ Muốn xem hiệu quả sử dụng? Hãy xem video 🎥
 ## Cảnh báo ⚠️
 
 1. Dự án này là phần mềm mã nguồn mở, phần mềm này không có quan hệ hợp tác thương mại với bất kỳ nhà cung cấp dịch vụ API bên thứ ba nào (bao gồm nhưng không giới hạn ở các nền tảng nhận dạng giọng nói, mô hình lớn, tổng hợp giọng nói, v.v.), và không đảm bảo chất lượng dịch vụ cũng như an toàn tài chính của họ.
-Khuyến nghị người dùng ưu tiên lựa chọn nhà cung cấp dịch vụ có giấy phép kinh doanh liên quan và đọc kỹ thỏa thuận dịch vụ và chính sách bảo mật của họ. Phần mềm này không lưu trữ bất kỳ khóa tài khoản nào, không tham gia vào luồng tiền và không chịu rủi ro mất tiền nạp.
+   Khuyến nghị người dùng ưu tiên lựa chọn nhà cung cấp dịch vụ có giấy phép kinh doanh liên quan và đọc kỹ thỏa thuận dịch vụ và chính sách bảo mật của họ. Phần mềm này không lưu trữ bất kỳ khóa tài khoản nào, không tham gia vào luồng tiền và không chịu rủi ro mất tiền nạp.
 
 2. Chức năng của dự án này chưa hoàn thiện và chưa qua đánh giá bảo mật mạng, vui lòng không sử dụng trong môi trường sản xuất. Nếu bạn triển khai dự án này trong môi trường mạng công cộng để học tập, vui lòng thực hiện các biện pháp bảo vệ cần thiết.
 
@@ -166,10 +166,11 @@ Khuyến nghị người dùng ưu tiên lựa chọn nhà cung cấp dịch v�
 Dự án này cung cấp hai phương pháp triển khai, vui lòng chọn theo nhu cầu cụ thể của bạn:
 
 #### 🚀 Lựa chọn phương pháp triển khai
-| Phương pháp triển khai | Đặc điểm | Tình huống áp dụng | Tài liệu triển khai | Yêu cầu cấu hình | Video hướng dẫn |
-|---------|------|---------|---------|---------|---------|
-| **Cài đặt tối giản** | Đối thoại thông minh, quản lý đơn tác nhân | Môi trường cấu hình thấp, dữ liệu lưu trong tệp cấu hình, không cần cơ sở dữ liệu | [①Phiên bản Docker](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Triển khai mã nguồn](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)| 2 nhân 4GB nếu dùng `FunASR`, 2 nhân 2GB nếu toàn API | - |
-| **Cài đặt toàn bộ module** | Đối thoại thông minh, quản lý đa người dùng, quản lý đa tác nhân, bảng điều khiển thông minh | Trải nghiệm đầy đủ tính năng, dữ liệu lưu trong cơ sở dữ liệu |[①Phiên bản Docker](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Triển khai mã nguồn](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Hướng dẫn tự động cập nhật triển khai mã nguồn](../dev-ops-integration.md) | 4 nhân 8GB nếu dùng `FunASR`, 2 nhân 4GB nếu toàn API| [Video hướng dẫn khởi động mã nguồn cục bộ](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
+
+| Phương pháp triển khai     | Đặc điểm                                                                                     | Tình huống áp dụng                                                                | Tài liệu triển khai                                                                                                                                                                                                                                                                                                                                                 | Yêu cầu cấu hình                                      | Video hướng dẫn                                                                          |
+| -------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Cài đặt tối giản**       | Đối thoại thông minh, quản lý đơn tác nhân                                                   | Môi trường cấu hình thấp, dữ liệu lưu trong tệp cấu hình, không cần cơ sở dữ liệu | [①Phiên bản Docker](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Triển khai mã nguồn](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)                                                                                                                | 2 nhân 4GB nếu dùng `FunASR`, 2 nhân 2GB nếu toàn API | -                                                                                        |
+| **Cài đặt toàn bộ module** | Đối thoại thông minh, quản lý đa người dùng, quản lý đa tác nhân, bảng điều khiển thông minh | Trải nghiệm đầy đủ tính năng, dữ liệu lưu trong cơ sở dữ liệu                     | [①Phiên bản Docker](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Triển khai mã nguồn](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Hướng dẫn tự động cập nhật triển khai mã nguồn](../dev-ops-integration.md) | 4 nhân 8GB nếu dùng `FunASR`, 2 nhân 4GB nếu toàn API | [Video hướng dẫn khởi động mã nguồn cục bộ](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
 
 Câu hỏi thường gặp và hướng dẫn liên quan, vui lòng tham khảo [liên kết này](../FAQ.md)
 
@@ -185,39 +186,43 @@ Công cụ kiểm tra dịch vụ: https://2662r3426b.vicp.fun/test/
 ```
 
 #### 🚩 Mô tả và khuyến nghị cấu hình
+
 > [!Note]
 > Dự án này cung cấp hai phương án cấu hình:
 >
 > 1. Cấu hình `Miễn phí hoàn toàn cho người mới`: Phù hợp với sử dụng gia đình cá nhân, tất cả các thành phần đều sử dụng phương án miễn phí, không cần thanh toán thêm.
->
 > 2. `Cấu hình streaming`: Phù hợp với demo, đào tạo, hơn 2 đồng thời, v.v., sử dụng công nghệ xử lý streaming, tốc độ phản hồi nhanh hơn, trải nghiệm tốt hơn.
 >
 > Từ phiên bản `0.5.2`, dự án hỗ trợ cấu hình streaming, so với phiên bản đầu, tốc độ phản hồi cải thiện khoảng `2.5 giây`, cải thiện đáng kể trải nghiệm người dùng.
 
-| Tên module | Cài đặt miễn phí cho người mới | Cấu hình streaming |
-|:---:|:---:|:---:|
-| ASR(Nhận dạng giọng nói) | FunASR(Local) | 👍XunfeiStreamASR(Xunfei Streaming) |
-| LLM(Mô hình lớn) | glm-4-flash(Zhipu) | 👍qwen-flash(Alibaba Bailian) |
-| VLLM(Mô hình lớn thị giác) | glm-4v-flash(Zhipu) | 👍qwen3.5-flash(Alibaba Bailian) |
-| TTS(Tổng hợp giọng nói) | EdgeTTS(Microsoft) | 👍HuoshanDoubleStreamTTS(Volcano Streaming) |
-| Intent(Nhận dạng ý định) | function_call(Gọi hàm) | function_call(Gọi hàm) |
-| Memory(Chức năng bộ nhớ) | mem_local_short(Bộ nhớ ngắn hạn cục bộ) | mem_local_short(Bộ nhớ ngắn hạn cục bộ) |
+|         Tên module         |     Cài đặt miễn phí cho người mới      |             Cấu hình streaming              |
+| :------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|  ASR(Nhận dạng giọng nói)  |              FunASR(Local)              |     👍XunfeiStreamASR(Xunfei Streaming)     |
+|      LLM(Mô hình lớn)      |           glm-4-flash(Zhipu)            |        👍qwen-flash(Alibaba Bailian)        |
+| VLLM(Mô hình lớn thị giác) |           glm-4v-flash(Zhipu)           |      👍qwen3.5-flash(Alibaba Bailian)       |
+|  TTS(Tổng hợp giọng nói)   |           EdgeTTS(Microsoft)            | 👍HuoshanDoubleStreamTTS(Volcano Streaming) |
+|  Intent(Nhận dạng ý định)  |         function_call(Gọi hàm)          |           function_call(Gọi hàm)            |
+|  Memory(Chức năng bộ nhớ)  | mem_local_short(Bộ nhớ ngắn hạn cục bộ) |   mem_local_short(Bộ nhớ ngắn hạn cục bộ)   |
 
 Nếu bạn quan tâm đến thời gian của từng thành phần, vui lòng xem [Báo cáo kiểm tra hiệu suất các thành phần Xiaozhi](https://github.com/xinnan-tech/xiaozhi-performance-research), có thể kiểm tra thực tế trong môi trường của bạn theo phương pháp kiểm tra trong báo cáo.
 
 #### 🔧 Công cụ kiểm tra
+
 Dự án này cung cấp các công cụ kiểm tra sau để giúp bạn xác minh hệ thống và chọn mô hình phù hợp:
 
-| Tên công cụ | Vị trí | Phương pháp sử dụng | Mô tả chức năng |
-|:---:|:---|:---:|:---:|
-| Công cụ kiểm tra tương tác âm thanh | main》digital-human》index.html | Chạy `python start.py` trong `main/digital-human`, sau đó mở `http://127.0.0.1:8006/index.html` | Kiểm tra chức năng phát và nhận âm thanh, xác minh xử lý âm thanh phía Python có bình thường không |
-| Công cụ kiểm tra phản hồi mô hình | main》xiaozhi-server》performance_tester.py | Thực hiện `python performance_tester.py` | Kiểm tra tốc độ phản hồi của ba module cốt lõi ASR(Nhận dạng giọng nói), LLM(Mô hình lớn), VLLM(Mô hình thị giác), TTS(Tổng hợp giọng nói) |
+|             Tên công cụ             | Vị trí                                      |                                       Phương pháp sử dụng                                       |                                                              Mô tả chức năng                                                               |
+| :---------------------------------: | :------------------------------------------ | :---------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| Công cụ kiểm tra tương tác âm thanh | main》digital-human》index.html             | Chạy `python start.py` trong `main/digital-human`, sau đó mở `http://127.0.0.1:8006/index.html` |                     Kiểm tra chức năng phát và nhận âm thanh, xác minh xử lý âm thanh phía Python có bình thường không                     |
+|  Công cụ kiểm tra phản hồi mô hình  | main》xiaozhi-server》performance_tester.py |                            Thực hiện `python performance_tester.py`                             | Kiểm tra tốc độ phản hồi của ba module cốt lõi ASR(Nhận dạng giọng nói), LLM(Mô hình lớn), VLLM(Mô hình thị giác), TTS(Tổng hợp giọng nói) |
 
 > 💡 Gợi ý: Khi kiểm tra tốc độ mô hình, chỉ kiểm tra các mô hình đã cấu hình khóa.
 
 ---
+
 ## Danh sách tính năng ✨
+
 ### Đã thực hiện ✅
+
 ![请参考-全模块安装架构图](../images/deploy2.png)
 | Module chức năng | Mô tả |
 |:---:|:---|
@@ -245,22 +250,24 @@ Nếu bạn là một nhà phát triển phần mềm, đây có một [Lá thư
 ---
 
 ## Hệ sinh thái sản phẩm 👬
+
 Xiaozhi là một hệ sinh thái, khi bạn sử dụng sản phẩm này, bạn cũng có thể xem các [dự án xuất sắc](https://github.com/78/xiaozhi-esp32/blob/main/README_zh.md#%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE) khác trong hệ sinh thái này
 
 ---
 
 ## Danh sách nền tảng/thành phần được dự án này hỗ trợ 📋
+
 ### LLM Mô hình ngôn ngữ
 
-| Phương pháp sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
-|:---:|:---:|:---:|
-| Gọi giao diện openai | Alibaba Bailian, Volcano Engine, DeepSeek, Zhipu, Gemini, iFlytek | Zhipu, Gemini |
-| Gọi giao diện ollama | Ollama | - |
-| Gọi giao diện dify | Dify | - |
-| Gọi giao diện fastgpt | Fastgpt | - |
-| Gọi giao diện coze | Coze | - |
-| Gọi giao diện xinference | Xinference | - |
-| Gọi giao diện homeassistant | HomeAssistant | - |
+|     Phương pháp sử dụng     |                          Nền tảng hỗ trợ                          | Nền tảng miễn phí |
+| :-------------------------: | :---------------------------------------------------------------: | :---------------: |
+|    Gọi giao diện openai     | Alibaba Bailian, Volcano Engine, DeepSeek, Zhipu, Gemini, iFlytek |   Zhipu, Gemini   |
+|    Gọi giao diện ollama     |                              Ollama                               |         -         |
+|     Gọi giao diện dify      |                               Dify                                |         -         |
+|    Gọi giao diện fastgpt    |                              Fastgpt                              |         -         |
+|     Gọi giao diện coze      |                               Coze                                |         -         |
+|  Gọi giao diện xinference   |                            Xinference                             |         -         |
+| Gọi giao diện homeassistant |                           HomeAssistant                           |         -         |
 
 Trên thực tế, bất kỳ LLM nào hỗ trợ gọi giao diện openai đều có thể truy cập sử dụng.
 
@@ -268,8 +275,8 @@ Trên thực tế, bất kỳ LLM nào hỗ trợ gọi giao diện openai đề
 
 ### VLLM Mô hình thị giác
 
-| Phương pháp sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
-|:---:|:---:|:---:|
+| Phương pháp sử dụng  |          Nền tảng hỗ trợ           | Nền tảng miễn phí |
+| :------------------: | :--------------------------------: | :---------------: |
 | Gọi giao diện openai | Alibaba Bailian, Zhipu ChatGLMVLLM | Zhipu ChatGLMVLLM |
 
 Trên thực tế, bất kỳ VLLM nào hỗ trợ gọi giao diện openai đều có thể truy cập sử dụng.
@@ -278,79 +285,78 @@ Trên thực tế, bất kỳ VLLM nào hỗ trợ gọi giao diện openai đ�
 
 ### TTS Tổng hợp giọng nói
 
-| Phương pháp sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
-|:---:|:---:|:---:|
-| Gọi giao diện | EdgeTTS, iFlytek, Volcano Engine, Tencent Cloud, Alibaba Cloud và Bailian, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi streaming TTS, MinimaxTTS | Lingxi streaming TTS, EdgeTTS, CosyVoiceSiliconflow(một phần) |
-| Dịch vụ cục bộ | FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
+| Phương pháp sử dụng |                                                                                    Nền tảng hỗ trợ                                                                                     |                         Nền tảng miễn phí                         |
+| :-----------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------: |
+|    Gọi giao diện    | EdgeTTS, iFlytek, Volcano Engine, Tencent Cloud, Alibaba Cloud và Bailian, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi streaming TTS, MinimaxTTS |   Lingxi streaming TTS, EdgeTTS, CosyVoiceSiliconflow(một phần)   |
+|   Dịch vụ cục bộ    |                                                           FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech                                                            | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
 
 ---
 
 ### VAD Phát hiện hoạt động giọng nói
 
-| Loại  |   Tên nền tảng    | Phương pháp sử dụng | Mô hình thu phí | Ghi chú |
-|:---:|:---------:|:----:|:----:|:--:|
-| VAD | SileroVAD | Sử dụng cục bộ |  Miễn phí  |    |
+| Loại | Tên nền tảng | Phương pháp sử dụng | Mô hình thu phí | Ghi chú |
+| :--: | :----------: | :-----------------: | :-------------: | :-----: |
+| VAD  |  SileroVAD   |   Sử dụng cục bộ    |    Miễn phí     |         |
 
 ---
 
 ### ASR Nhận dạng giọng nói
 
-| Phương pháp sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
-|:---:|:---:|:---:|
-| Sử dụng cục bộ | FunASR, SherpaASR | FunASR, SherpaASR |
-| Gọi giao diện | FunASRServer, Volcano Engine, iFlytek, Tencent Cloud, Alibaba Cloud, Baidu Cloud, OpenAI ASR | FunASRServer |
+| Phương pháp sử dụng |                                       Nền tảng hỗ trợ                                        | Nền tảng miễn phí |
+| :-----------------: | :------------------------------------------------------------------------------------------: | :---------------: |
+|   Sử dụng cục bộ    |                                      FunASR, SherpaASR                                       | FunASR, SherpaASR |
+|    Gọi giao diện    | FunASRServer, Volcano Engine, iFlytek, Tencent Cloud, Alibaba Cloud, Baidu Cloud, OpenAI ASR |   FunASRServer    |
 
 ---
 
 ### Voiceprint Nhận dạng vân giọng
 
 | Phương pháp sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
-|:---:|:---:|:---:|
-| Sử dụng cục bộ | 3D-Speaker | 3D-Speaker |
+| :-----------------: | :-------------: | :---------------: |
+|   Sử dụng cục bộ    |   3D-Speaker    |    3D-Speaker     |
 
 ---
 
 ### Memory Lưu trữ bộ nhớ
 
-|   Loại   |      Tên nền tảng       | Phương pháp sử dụng |   Mô hình thu phí    | Ghi chú |
-|:------:|:---------------:|:----:|:---------:|:--:|
-| Memory |     mem0ai      | Gọi giao diện | Hạn mức 1000 lần/tháng |    |
-| Memory |     [powermem](../powermem-integration.md)    | Tóm tắt cục bộ | Phụ thuộc vào LLM và DB |  OceanBase mã nguồn mở, hỗ trợ tìm kiếm thông minh  |
-| Memory | mem_local_short | Tóm tắt cục bộ |    Miễn phí     |    |
-| Memory |     nomem       | Chế độ không có bộ nhớ |    Miễn phí     |    |
+|  Loại  |              Tên nền tảng              |  Phương pháp sử dụng   |     Mô hình thu phí     |                      Ghi chú                      |
+| :----: | :------------------------------------: | :--------------------: | :---------------------: | :-----------------------------------------------: |
+| Memory |                 mem0ai                 |     Gọi giao diện      | Hạn mức 1000 lần/tháng  |                                                   |
+| Memory | [powermem](../powermem-integration.md) |     Tóm tắt cục bộ     | Phụ thuộc vào LLM và DB | OceanBase mã nguồn mở, hỗ trợ tìm kiếm thông minh |
+| Memory |            mem_local_short             |     Tóm tắt cục bộ     |        Miễn phí         |                                                   |
+| Memory |                 nomem                  | Chế độ không có bộ nhớ |        Miễn phí         |                                                   |
 
 ---
 
 ### Intent Nhận dạng ý định
 
-|   Loại   |     Tên nền tảng      | Phương pháp sử dụng |  Mô hình thu phí   |          Ghi chú           |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Intent |  intent_llm   | Gọi giao diện | Thu phí theo LLM |    Nhận dạng ý định qua mô hình lớn, tính tổng quát mạnh     |
-| Intent | function_call | Gọi giao diện | Thu phí theo LLM | Hoàn thành ý định qua gọi hàm mô hình lớn, tốc độ nhanh, hiệu quả tốt |
-| Intent |    nointent   | Chế độ không có ý định |    Miễn phí     |    Không thực hiện nhận dạng ý định, trả về trực tiếp kết quả đối thoại     |
+|  Loại  | Tên nền tảng  |  Phương pháp sử dụng   | Mô hình thu phí  |                                Ghi chú                                |
+| :----: | :-----------: | :--------------------: | :--------------: | :-------------------------------------------------------------------: |
+| Intent |  intent_llm   |     Gọi giao diện      | Thu phí theo LLM |         Nhận dạng ý định qua mô hình lớn, tính tổng quát mạnh         |
+| Intent | function_call |     Gọi giao diện      | Thu phí theo LLM | Hoàn thành ý định qua gọi hàm mô hình lớn, tốc độ nhanh, hiệu quả tốt |
+| Intent |   nointent    | Chế độ không có ý định |     Miễn phí     | Không thực hiện nhận dạng ý định, trả về trực tiếp kết quả đối thoại  |
 
 ---
 
 ### Rag Tăng cường truy xuất thông tin
 
-|   Loại   |     Tên nền tảng      | Phương pháp sử dụng |  Mô hình thu phí   |          Ghi chú           |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Rag |  ragflow   | Gọi giao diện | Thu phí theo token tiêu tốn của phân đoạn, phân từ |    Sử dụng chức năng tăng cường truy xuất của RagFlow, cung cấp phản hồi đối thoại chính xác hơn     |
+| Loại | Tên nền tảng | Phương pháp sử dụng |                  Mô hình thu phí                   |                                            Ghi chú                                            |
+| :--: | :----------: | :-----------------: | :------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
+| Rag  |   ragflow    |    Gọi giao diện    | Thu phí theo token tiêu tốn của phân đoạn, phân từ | Sử dụng chức năng tăng cường truy xuất của RagFlow, cung cấp phản hồi đối thoại chính xác hơn |
 
 ---
 
 ## Lời cảm ơn 🙏
 
-| Logo | Dự án/Công ty | Mô tả |
-|:---:|:---:|:---|
-| <img src="../images/logo_bailing.png" width="160"> | [Robot đối thoại giọng nói Bailing](https://github.com/wwbin2017/bailing) | Dự án này được lấy cảm hứng từ [Robot đối thoại giọng nói Bailing](https://github.com/wwbin2017/bailing) và được triển khai trên cơ sở đó |
-| <img src="../images/logo_tenclass.png" width="160"> | [Shifang Ronghai](https://www.tenclass.com/) | Cảm ơn [Shifang Ronghai](https://www.tenclass.com/) đã xây dựng giao thức truyền thông tiêu chuẩn, phương án tương thích đa thiết bị và mô phạm thực hành tình huống đồng thời cao cho hệ sinh thái Xiaozhi; cung cấp tài liệu hỗ trợ kỹ thuật toàn diện cho dự án này |
-| <img src="../images/logo_xuanfeng.png" width="160"> | [Xuanfeng Technology](https://github.com/Eric0308) | Cảm ơn [Xuanfeng Technology](https://github.com/Eric0308) đã đóng góp khung gọi hàm, giao thức truyền thông MCP và mã triển khai cơ chế gọi dạng plugin, thông qua hệ thống điều phối lệnh tiêu chuẩn hóa và khả năng mở rộng động, đã cải thiện đáng kể hiệu suất tương tác và khả năng mở rộng chức năng của thiết bị front-end(IoT) |
-| <img src="../images/logo_junsen.png" width="160"> | [huangjunsen](https://github.com/huangjunsen0406) | Cảm ơn [huangjunsen](https://github.com/huangjunsen0406) đã đóng góp module `Bảng điều khiển thông minh di động`, thực hiện điều khiển hiệu quả và tương tác thời gian thực trên thiết bị di động đa nền tảng, cải thiện đáng kể sự tiện lợi vận hành và hiệu quả quản lý của hệ thống trong tình huống di động |
-| <img src="../images/logo_huiyuan.png" width="160"> | [Huiyuan Design](http://ui.kwd988.net/) | Cảm ơn [Huiyuan Design](http://ui.kwd988.net/) đã cung cấp giải pháp thị giác chuyên nghiệp cho dự án này, sử dụng kinh nghiệm thực tế thiết kế phục vụ hơn nghìn doanh nghiệp, trao quyền cho trải nghiệm người dùng sản phẩm của dự án này |
-| <img src="../images/logo_qinren.png" width="160"> | [Xi'an Qinren Information Technology](https://www.029app.com/) | Cảm ơn [Xi'an Qinren Information Technology](https://www.029app.com/) đã làm sâu sắc hệ thống thị giác của dự án này, đảm bảo tính nhất quán và khả năng mở rộng của phong cách thiết kế tổng thể trong ứng dụng đa tình huống |
-| <img src="../images/logo_contributors.png" width="160"> | [Người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Cảm ơn [tất cả người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), sự cống hiến của bạn khiến dự án mạnh mẽ và vững chắc hơn. |
-
+|                          Logo                           |                                        Dự án/Công ty                                         | Mô tả                                                                                                                                                                                                                                                                                                                                  |
+| :-----------------------------------------------------: | :------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   <img src="../images/logo_bailing.png" width="160">    |          [Robot đối thoại giọng nói Bailing](https://github.com/wwbin2017/bailing)           | Dự án này được lấy cảm hứng từ [Robot đối thoại giọng nói Bailing](https://github.com/wwbin2017/bailing) và được triển khai trên cơ sở đó                                                                                                                                                                                              |
+|   <img src="../images/logo_tenclass.png" width="160">   |                         [Shifang Ronghai](https://www.tenclass.com/)                         | Cảm ơn [Shifang Ronghai](https://www.tenclass.com/) đã xây dựng giao thức truyền thông tiêu chuẩn, phương án tương thích đa thiết bị và mô phạm thực hành tình huống đồng thời cao cho hệ sinh thái Xiaozhi; cung cấp tài liệu hỗ trợ kỹ thuật toàn diện cho dự án này                                                                 |
+|   <img src="../images/logo_xuanfeng.png" width="160">   |                      [Xuanfeng Technology](https://github.com/Eric0308)                      | Cảm ơn [Xuanfeng Technology](https://github.com/Eric0308) đã đóng góp khung gọi hàm, giao thức truyền thông MCP và mã triển khai cơ chế gọi dạng plugin, thông qua hệ thống điều phối lệnh tiêu chuẩn hóa và khả năng mở rộng động, đã cải thiện đáng kể hiệu suất tương tác và khả năng mở rộng chức năng của thiết bị front-end(IoT) |
+|    <img src="../images/logo_junsen.png" width="160">    |                      [huangjunsen](https://github.com/huangjunsen0406)                       | Cảm ơn [huangjunsen](https://github.com/huangjunsen0406) đã đóng góp module `Bảng điều khiển thông minh di động`, thực hiện điều khiển hiệu quả và tương tác thời gian thực trên thiết bị di động đa nền tảng, cải thiện đáng kể sự tiện lợi vận hành và hiệu quả quản lý của hệ thống trong tình huống di động                        |
+|   <img src="../images/logo_huiyuan.png" width="160">    |                           [Huiyuan Design](http://ui.kwd988.net/)                            | Cảm ơn [Huiyuan Design](http://ui.kwd988.net/) đã cung cấp giải pháp thị giác chuyên nghiệp cho dự án này, sử dụng kinh nghiệm thực tế thiết kế phục vụ hơn nghìn doanh nghiệp, trao quyền cho trải nghiệm người dùng sản phẩm của dự án này                                                                                           |
+|    <img src="../images/logo_qinren.png" width="160">    |                [Xi'an Qinren Information Technology](https://www.029app.com/)                | Cảm ơn [Xi'an Qinren Information Technology](https://www.029app.com/) đã làm sâu sắc hệ thống thị giác của dự án này, đảm bảo tính nhất quán và khả năng mở rộng của phong cách thiết kế tổng thể trong ứng dụng đa tình huống                                                                                                         |
+| <img src="../images/logo_contributors.png" width="160"> | [Người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Cảm ơn [tất cả người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), sự cống hiến của bạn khiến dự án mạnh mẽ và vững chắc hơn.                                                                                                                                                                 |
 
 <a href="https://star-history.com/#xinnan-tech/xiaozhi-esp32-server&Date">
 

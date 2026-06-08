@@ -1,5 +1,5 @@
 {
-  "name": "小智",
+  "name": "小鹿",
   "appid": "__UNI__36A515E",
   "description": "",
   "versionName": "1.0.0",
@@ -39,10 +39,7 @@
         ],
         "minSdkVersion": 30,
         "targetSdkVersion": 30,
-        "abiFilters": [
-          "armeabi-v7a",
-          "arm64-v8a"
-        ]
+        "abiFilters": ["armeabi-v7a", "arm64-v8a"]
       },
       "ios": {},
       "sdkConfigs": {},
@@ -100,9 +97,7 @@
         "desc": "WiFi配网功能需要获取位置权限"
       }
     },
-    "requiredPrivateInfos": [
-      "getLocation"
-    ]
+    "requiredPrivateInfos": ["getLocation"]
   },
   "mp-alipay": {
     "usingComponents": true,

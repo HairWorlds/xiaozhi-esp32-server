@@ -54,7 +54,7 @@ public class AgentChatHistoryBizServiceImpl implements AgentChatHistoryBizServic
         Byte chatType = report.getChatType();
         Long reportTimeMillis = null != report.getReportTime() ? report.getReportTime()
                 : System.currentTimeMillis();
-        log.info("小智设备聊天上报请求: macAddress={}, type={} reportTime={}", macAddress, chatType, reportTimeMillis);
+        log.info("小鹿设备聊天上报请求: macAddress={}, type={} reportTime={}", macAddress, chatType, reportTimeMillis);
 
         // 根据设备MAC地址查询对应的默认智能体，判断是否需要上报
         AgentEntity agentEntity = agentService.getDefaultAgentByMacAddress(macAddress);

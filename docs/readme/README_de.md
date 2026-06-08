@@ -66,7 +66,7 @@ Möchten Sie die Nutzungseffekte sehen? Klicken Sie auf die Videos unten 🎥
     <td>
       <a href="https://www.bilibili.com/video/BV1WEcxzFEAT" target="_blank">
         <picture>
-          <img alt="小智数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
+          <img alt="小鹿数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
       </a>
     </td>
     <td>
@@ -165,10 +165,11 @@ Möchten Sie die Nutzungseffekte sehen? Klicken Sie auf die Videos unten 🎥
 Dieses Projekt bietet zwei Bereitstellungsmethoden. Bitte wählen Sie basierend auf Ihren spezifischen Anforderungen:
 
 #### 🚀 Auswahl der Bereitstellungsmethode
-| Bereitstellungsmethode | Funktionen | Anwendungsszenarien | Deployment-Dokumente | Konfigurationsanforderungen | Video-Tutorials |
-|---------|------|---------|---------|---------|---------|
-| **Vereinfachte Installation** | Intelligenter Dialog, Einzel-Agenten-Verwaltung | Umgebungen mit geringer Konfiguration, Daten in Konfigurationsdateien gespeichert, keine Datenbank erforderlich | [①Docker-Version](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Quellcode-Deployment](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)| 2 Kerne 4GB bei Verwendung von `FunASR`, 2 Kerne 2GB bei allen APIs | - |
-| **Vollständige Modulinstallation** | Intelligenter Dialog, Mehrbenutzerverwaltung, Mehr-Agenten-Verwaltung, Intelligente Steuerkonsole-Bedienung | Vollständige Funktionserfahrung, Daten in Datenbank gespeichert |[①Docker-Version](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Quellcode-Deployment](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Quellcode-Deployment Auto-Update-Tutorial](../dev-ops-integration.md) | 4 Kerne 8GB bei Verwendung von `FunASR`, 2 Kerne 4GB bei allen APIs| [Video-Tutorial für lokalen Quellcode-Start](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
+
+| Bereitstellungsmethode             | Funktionen                                                                                                  | Anwendungsszenarien                                                                                             | Deployment-Dokumente                                                                                                                                                                                                                                                                                                                                          | Konfigurationsanforderungen                                         | Video-Tutorials                                                                           |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Vereinfachte Installation**      | Intelligenter Dialog, Einzel-Agenten-Verwaltung                                                             | Umgebungen mit geringer Konfiguration, Daten in Konfigurationsdateien gespeichert, keine Datenbank erforderlich | [①Docker-Version](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Quellcode-Deployment](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)                                                                                                           | 2 Kerne 4GB bei Verwendung von `FunASR`, 2 Kerne 2GB bei allen APIs | -                                                                                         |
+| **Vollständige Modulinstallation** | Intelligenter Dialog, Mehrbenutzerverwaltung, Mehr-Agenten-Verwaltung, Intelligente Steuerkonsole-Bedienung | Vollständige Funktionserfahrung, Daten in Datenbank gespeichert                                                 | [①Docker-Version](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Quellcode-Deployment](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Quellcode-Deployment Auto-Update-Tutorial](../dev-ops-integration.md) | 4 Kerne 8GB bei Verwendung von `FunASR`, 2 Kerne 4GB bei allen APIs | [Video-Tutorial für lokalen Quellcode-Start](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
 
 Häufige Fragen und entsprechende Tutorials finden Sie unter [diesem Link](../FAQ.md)
 
@@ -184,39 +185,43 @@ Websocket-Schnittstellenadresse: wss://2662r3426b.vicp.fun/xiaozhi/v1/
 ```
 
 #### 🚩 Konfigurationsbeschreibung und Empfehlungen
+
 > [!Note]
 > Dieses Projekt bietet zwei Konfigurationsschemata:
 >
 > 1. `Einstiegslevel Kostenlose Einstellungen`: Geeignet für den persönlichen und privaten Gebrauch, alle Komponenten verwenden kostenlose Lösungen, keine zusätzliche Zahlung erforderlich.
->
 > 2. `Streaming-Konfiguration`: Geeignet für Demonstrationen, Schulungen, Szenarien mit mehr als 2 gleichzeitigen Benutzern usw. Verwendet Streaming-Verarbeitungstechnologie für schnellere Reaktionsgeschwindigkeit und bessere Erfahrung.
 >
 > Ab Version `0.5.2` unterstützt das Projekt Streaming-Konfiguration. Im Vergleich zu früheren Versionen ist die Reaktionsgeschwindigkeit um ca. `2,5 Sekunden` verbessert, was die Benutzererfahrung erheblich verbessert.
 
-| Modulname | Einstiegslevel Kostenlose Einstellungen | Streaming-Konfiguration |
-|:---:|:---:|:---:|
-| ASR (Spracherkennung) | FunASR (Lokal) | 👍XunfeiStreamASR (Xunfei-Streaming) |
-| LLM (Großes Modell) | glm-4-flash (Zhipu) | 👍qwen-flash (Alibaba Bailian) |
-| VLLM (Vision Large Model) | glm-4v-flash (Zhipu) | 👍qwen3.5-flash (Alibaba Bailian) |
-| TTS (Sprachsynthese) | EdgeTTS (Microsoft) | 👍HuoshanDoubleStreamTTS (Volcano-Streaming) |
-| Intent (Absichtserkennung) | function_call (Funktionsaufruf) | function_call (Funktionsaufruf) |
+|          Modulname          |   Einstiegslevel Kostenlose Einstellungen    |           Streaming-Konfiguration            |
+| :-------------------------: | :------------------------------------------: | :------------------------------------------: |
+|    ASR (Spracherkennung)    |                FunASR (Lokal)                |     👍XunfeiStreamASR (Xunfei-Streaming)     |
+|     LLM (Großes Modell)     |             glm-4-flash (Zhipu)              |        👍qwen-flash (Alibaba Bailian)        |
+|  VLLM (Vision Large Model)  |             glm-4v-flash (Zhipu)             |      👍qwen3.5-flash (Alibaba Bailian)       |
+|    TTS (Sprachsynthese)     |             EdgeTTS (Microsoft)              | 👍HuoshanDoubleStreamTTS (Volcano-Streaming) |
+| Intent (Absichtserkennung)  |       function_call (Funktionsaufruf)        |       function_call (Funktionsaufruf)        |
 | Memory (Gedächtnisfunktion) | mem_local_short (Lokales Kurzzeitgedächtnis) | mem_local_short (Lokales Kurzzeitgedächtnis) |
 
 Wenn Sie sich um die Latenz jeder Komponente kümmern, lesen Sie bitte den [Xiaozhi-Komponenten-Leistungstestbericht](https://github.com/xinnan-tech/xiaozhi-performance-research). Sie können gemäß den Testmethoden im Bericht in Ihrer Umgebung tatsächlich testen.
 
 #### 🔧 Testwerkzeuge
+
 Dieses Projekt bietet die folgenden Testwerkzeuge, um Ihnen bei der Überprüfung des Systems und der Auswahl geeigneter Modelle zu helfen:
 
-| Werkzeugname | Standort | Verwendungsmethode | Funktionsbeschreibung |
-|:---:|:---|:---:|:---:|
-| Audio-Interaktionstesttool | main》digital-human》index.html | In `main/digital-human` `python start.py` ausführen und dann `http://127.0.0.1:8006/index.html` öffnen | Testet Audio-Wiedergabe- und Empfangsfunktionen, überprüft, ob die Python-seitige Audioverarbeitung normal ist |
-| Modell-Reaktionstesttool | main》xiaozhi-server》performance_tester.py | Ausführen `python performance_tester.py` | Testet die Reaktionsgeschwindigkeit von ASR (Spracherkennung), LLM (großes Modell), VLLM (Vision-Modell), TTS (Sprachsynthese) drei Kernmodulen |
+|        Werkzeugname        | Standort                                    |                                           Verwendungsmethode                                           |                                                              Funktionsbeschreibung                                                              |
+| :------------------------: | :------------------------------------------ | :----------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| Audio-Interaktionstesttool | main》digital-human》index.html             | In `main/digital-human` `python start.py` ausführen und dann `http://127.0.0.1:8006/index.html` öffnen |                 Testet Audio-Wiedergabe- und Empfangsfunktionen, überprüft, ob die Python-seitige Audioverarbeitung normal ist                  |
+|  Modell-Reaktionstesttool  | main》xiaozhi-server》performance_tester.py |                                Ausführen `python performance_tester.py`                                | Testet die Reaktionsgeschwindigkeit von ASR (Spracherkennung), LLM (großes Modell), VLLM (Vision-Modell), TTS (Sprachsynthese) drei Kernmodulen |
 
 > 💡 Hinweis: Beim Testen der Modellgeschwindigkeit werden nur Modelle mit konfigurierten Schlüsseln getestet.
 
 ---
+
 ## Funktionsliste ✨
+
 ### Implementiert ✅
+
 ![请参考-全模块安装架构图](../images/deploy2.png)
 | Funktionsmodul | Beschreibung |
 |:---:|:---|
@@ -244,22 +249,24 @@ Wenn Sie ein Softwareentwickler sind, finden Sie hier einen [Offenen Brief an En
 ---
 
 ## Produktökosystem 👬
+
 Xiaozhi ist ein Ökosystem. Wenn Sie dieses Produkt verwenden, können Sie sich auch andere [hervorragende Projekte](https://github.com/78/xiaozhi-esp32/blob/main/README_zh.md#%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE) in diesem Ökosystem ansehen
 
 ---
 
 ## Liste der von diesem Projekt unterstützten Plattformen/Komponenten 📋
+
 ### LLM-Sprachmodelle
 
-| Verwendungsmethode | Unterstützte Plattformen | Kostenlose Plattformen |
-|:---:|:---:|:---:|
-| OpenAI-Schnittstellenaufrufe | Alibaba Bailian, Volcano Engine Doubao, DeepSeek, Zhipu ChatGLM, Gemini | Zhipu ChatGLM, Gemini |
-| Ollama-Schnittstellenaufrufe | Ollama | - |
-| Dify-Schnittstellenaufrufe | Dify | - |
-| FastGPT-Schnittstellenaufrufe | FastGPT | - |
-| Coze-Schnittstellenaufrufe | Coze | - |
-| Xinference-Schnittstellenaufrufe | Xinference | - |
-| HomeAssistant-Schnittstellenaufrufe | HomeAssistant | - |
+|         Verwendungsmethode          |                        Unterstützte Plattformen                         | Kostenlose Plattformen |
+| :---------------------------------: | :---------------------------------------------------------------------: | :--------------------: |
+|    OpenAI-Schnittstellenaufrufe     | Alibaba Bailian, Volcano Engine Doubao, DeepSeek, Zhipu ChatGLM, Gemini | Zhipu ChatGLM, Gemini  |
+|    Ollama-Schnittstellenaufrufe     |                                 Ollama                                  |           -            |
+|     Dify-Schnittstellenaufrufe      |                                  Dify                                   |           -            |
+|    FastGPT-Schnittstellenaufrufe    |                                 FastGPT                                 |           -            |
+|     Coze-Schnittstellenaufrufe      |                                  Coze                                   |           -            |
+|  Xinference-Schnittstellenaufrufe   |                               Xinference                                |           -            |
+| HomeAssistant-Schnittstellenaufrufe |                              HomeAssistant                              |           -            |
 
 Tatsächlich kann jedes LLM, das OpenAI-Schnittstellenaufrufe unterstützt, integriert und verwendet werden.
 
@@ -267,9 +274,9 @@ Tatsächlich kann jedes LLM, das OpenAI-Schnittstellenaufrufe unterstützt, inte
 
 ### VLLM-Vision-Modelle
 
-| Verwendungsmethode | Unterstützte Plattformen | Kostenlose Plattformen |
-|:---:|:---:|:---:|
-| OpenAI-Schnittstellenaufrufe | Alibaba Bailian, Zhipu ChatGLMVLLM | Zhipu ChatGLMVLLM |
+|      Verwendungsmethode      |      Unterstützte Plattformen      | Kostenlose Plattformen |
+| :--------------------------: | :--------------------------------: | :--------------------: |
+| OpenAI-Schnittstellenaufrufe | Alibaba Bailian, Zhipu ChatGLMVLLM |   Zhipu ChatGLMVLLM    |
 
 Tatsächlich kann jedes VLLM, das OpenAI-Schnittstellenaufrufe unterstützt, integriert und verwendet werden.
 
@@ -277,79 +284,78 @@ Tatsächlich kann jedes VLLM, das OpenAI-Schnittstellenaufrufe unterstützt, int
 
 ### TTS-Sprachsynthese
 
-| Verwendungsmethode | Unterstützte Plattformen | Kostenlose Plattformen |
-|:---:|:---:|:---:|
-| Schnittstellenaufrufe | EdgeTTS, Volcano Engine Doubao TTS, Tencent Cloud, Alibaba Cloud TTS, AliYun Stream TTS, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi Streaming TTS, MinimaxTTS, Volcano Dual-Stream TTS | Lingxi Streaming TTS, EdgeTTS, CosyVoiceSiliconflow (teilweise) |
-| Lokale Dienste | FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
+|  Verwendungsmethode   |                                                                                                   Unterstützte Plattformen                                                                                                    |                      Kostenlose Plattformen                       |
+| :-------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------: |
+| Schnittstellenaufrufe | EdgeTTS, Volcano Engine Doubao TTS, Tencent Cloud, Alibaba Cloud TTS, AliYun Stream TTS, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi Streaming TTS, MinimaxTTS, Volcano Dual-Stream TTS |  Lingxi Streaming TTS, EdgeTTS, CosyVoiceSiliconflow (teilweise)  |
+|    Lokale Dienste     |                                                                               FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech                                                                               | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
 
 ---
 
 ### VAD-Sprachaktivitätserkennung
 
 | Typ | Plattformname | Verwendungsmethode | Preismodell | Hinweise |
-|:---:|:---------:|:----:|:----:|:--:|
-| VAD | SileroVAD | Lokale Verwendung | Kostenlos | |
+| :-: | :-----------: | :----------------: | :---------: | :------: |
+| VAD |   SileroVAD   | Lokale Verwendung  |  Kostenlos  |          |
 
 ---
 
 ### ASR-Spracherkennung
 
-| Verwendungsmethode | Unterstützte Plattformen | Kostenlose Plattformen |
-|:---:|:---:|:---:|
-| Lokale Verwendung | FunASR, SherpaASR | FunASR, SherpaASR |
-| Schnittstellenaufrufe | DoubaoASR, Doubao Streaming ASR, FunASRServer, TencentASR, AliyunASR, Aliyun Streaming ASR, Baidu ASR, OpenAI ASR | FunASRServer |
+|  Verwendungsmethode   |                                             Unterstützte Plattformen                                              | Kostenlose Plattformen |
+| :-------------------: | :---------------------------------------------------------------------------------------------------------------: | :--------------------: |
+|   Lokale Verwendung   |                                                 FunASR, SherpaASR                                                 |   FunASR, SherpaASR    |
+| Schnittstellenaufrufe | DoubaoASR, Doubao Streaming ASR, FunASRServer, TencentASR, AliyunASR, Aliyun Streaming ASR, Baidu ASR, OpenAI ASR |      FunASRServer      |
 
 ---
 
 ### Voiceprint-Stimmabdruckerkennung
 
 | Verwendungsmethode | Unterstützte Plattformen | Kostenlose Plattformen |
-|:---:|:---:|:---:|
-| Lokale Verwendung | 3D-Speaker | 3D-Speaker |
+| :----------------: | :----------------------: | :--------------------: |
+| Lokale Verwendung  |        3D-Speaker        |       3D-Speaker       |
 
 ---
 
 ### Memory-Gedächtnisspeicher
 
-| Typ | Plattformname | Verwendungsmethode | Preismodell | Hinweise |
-|:------:|:---------------:|:----:|:---------:|:--:|
-| Memory | mem0ai | Schnittstellenaufrufe | 1000 Mal/Monat Kontingent | |
-| Memory | [powermem](../powermem-integration.md) | Lokale Zusammenfassung | Abhängig von LLM und DB | OceanBase Open Source, unterstützt intelligente Abfrage |
-| Memory | mem_local_short | Lokale Zusammenfassung | Kostenlos | |
-| Memory | nomem | Kein Gedächtnismodus | Kostenlos | |
+|  Typ   |             Plattformname              |   Verwendungsmethode   |        Preismodell        |                        Hinweise                         |
+| :----: | :------------------------------------: | :--------------------: | :-----------------------: | :-----------------------------------------------------: |
+| Memory |                 mem0ai                 | Schnittstellenaufrufe  | 1000 Mal/Monat Kontingent |                                                         |
+| Memory | [powermem](../powermem-integration.md) | Lokale Zusammenfassung |  Abhängig von LLM und DB  | OceanBase Open Source, unterstützt intelligente Abfrage |
+| Memory |            mem_local_short             | Lokale Zusammenfassung |         Kostenlos         |                                                         |
+| Memory |                 nomem                  |  Kein Gedächtnismodus  |         Kostenlos         |                                                         |
 
 ---
 
 ### Intent-Absichtserkennung
 
-| Typ | Plattformname | Verwendungsmethode | Preismodell | Hinweise |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Intent | intent_llm | Schnittstellenaufrufe | Basierend auf LLM-Preisen | Erkennt Absicht durch große Modelle, starke Allgemeingültigkeit |
+|  Typ   | Plattformname |  Verwendungsmethode   |        Preismodell        |                                               Hinweise                                               |
+| :----: | :-----------: | :-------------------: | :-----------------------: | :--------------------------------------------------------------------------------------------------: |
+| Intent |  intent_llm   | Schnittstellenaufrufe | Basierend auf LLM-Preisen |                   Erkennt Absicht durch große Modelle, starke Allgemeingültigkeit                    |
 | Intent | function_call | Schnittstellenaufrufe | Basierend auf LLM-Preisen | Vervollständigt Absicht durch Funktionsaufruf großer Modelle, schnelle Geschwindigkeit, guter Effekt |
-| Intent | nointent | Kein Absichtsmodus | Kostenlos | Führt keine Absichtserkennung durch, gibt direkt Dialogergebnis zurück |
+| Intent |   nointent    |  Kein Absichtsmodus   |         Kostenlos         |                Führt keine Absichtserkennung durch, gibt direkt Dialogergebnis zurück                |
 
 ---
 
 ### Rag Retrieval Augmented Generation
 
-| Typ | Plattformname | Verwendungsmethode | Preismodell | Hinweise |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Rag | ragflow | Schnittstellenaufrufe | Gebühren basierend auf Token-Verbrauch für Segmentierung und Tokenisierung | Nutzt RAGFlow's Retrieval-Augmented-Generation-Funktion für präzisere Dialogantworten |
+| Typ | Plattformname |  Verwendungsmethode   |                                Preismodell                                 |                                       Hinweise                                        |
+| :-: | :-----------: | :-------------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| Rag |    ragflow    | Schnittstellenaufrufe | Gebühren basierend auf Token-Verbrauch für Segmentierung und Tokenisierung | Nutzt RAGFlow's Retrieval-Augmented-Generation-Funktion für präzisere Dialogantworten |
 
 ---
 
 ## Danksagungen 🙏
 
-| Logo | Projekt/Unternehmen | Beschreibung |
-|:---:|:---:|:---|
-| <img src="../images/logo_bailing.png" width="160"> | [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing) | Dieses Projekt wurde von [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing) inspiriert und auf dessen Basis implementiert |
-| <img src="../images/logo_tenclass.png" width="160"> | [Tenclass](https://www.tenclass.com/) | Dank an [Tenclass](https://www.tenclass.com/) für die Formulierung von Standardkommunikationsprotokollen, Multi-Geräte-Kompatibilitätslösungen und High-Concurrency-Szenario-Praxisdemonstrationen für das Xiaozhi-Ökosystem; für die Bereitstellung vollständiger technischer Dokumentationsunterstützung für dieses Projekt |
-| <img src="../images/logo_xuanfeng.png" width="160"> | [Xuanfeng Technology](https://github.com/Eric0308) | Dank an [Xuanfeng Technology](https://github.com/Eric0308) für den Beitrag des Funktionsaufruf-Frameworks, des MCP-Kommunikationsprotokolls und der plugin-basierten Aufrufmechanismus-Implementierungscode. Durch standardisiertes Befehlsplanungssystem und dynamische Erweiterungsfähigkeiten wird die Interaktionseffizienz und funktionale Erweiterbarkeit von Frontend-Geräten (IoT) erheblich verbessert |
-| <img src="../images/logo_junsen.png" width="160"> | [huangjunsen](https://github.com/huangjunsen0406) | Dank an [huangjunsen](https://github.com/huangjunsen0406) für den Beitrag des `Smart Control Console Mobile`-Moduls, das eine effiziente Steuerung und Echtzeit-Interaktion über mobile Geräte ermöglicht und die Betriebsbequemlichkeit und Verwaltungseffizienz des Systems in mobilen Szenarien erheblich verbessert |
-| <img src="../images/logo_huiyuan.png" width="160"> | [Huiyuan Design](http://ui.kwd988.net/) | Dank an [Huiyuan Design](http://ui.kwd988.net/) für die Bereitstellung professioneller visueller Lösungen für dieses Projekt, unter Verwendung ihrer Design-Praxiserfahrung im Dienst von über tausend Unternehmen, um die Produktbenutzererfahrung dieses Projekts zu stärken |
-| <img src="../images/logo_qinren.png" width="160"> | [Xi'an Qinren Information Technology](https://www.029app.com/) | Dank an [Xi'an Qinren Information Technology](https://www.029app.com/) für die Vertiefung des visuellen Systems dieses Projekts und die Sicherstellung der Konsistenz und Erweiterbarkeit des Gesamtdesignstils in Multi-Szenario-Anwendungen |
-| <img src="../images/logo_contributors.png" width="160"> | [Code-Mitwirkende](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Dank an [alle Code-Mitwirkenden](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), Ihre Bemühungen haben das Projekt robuster und leistungsfähiger gemacht. |
-
+|                          Logo                           |                                     Projekt/Unternehmen                                     | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :-----------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   <img src="../images/logo_bailing.png" width="160">    |            [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing)             | Dieses Projekt wurde von [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing) inspiriert und auf dessen Basis implementiert                                                                                                                                                                                                                                                                     |
+|   <img src="../images/logo_tenclass.png" width="160">   |                            [Tenclass](https://www.tenclass.com/)                            | Dank an [Tenclass](https://www.tenclass.com/) für die Formulierung von Standardkommunikationsprotokollen, Multi-Geräte-Kompatibilitätslösungen und High-Concurrency-Szenario-Praxisdemonstrationen für das Xiaozhi-Ökosystem; für die Bereitstellung vollständiger technischer Dokumentationsunterstützung für dieses Projekt                                                                                   |
+|   <img src="../images/logo_xuanfeng.png" width="160">   |                     [Xuanfeng Technology](https://github.com/Eric0308)                      | Dank an [Xuanfeng Technology](https://github.com/Eric0308) für den Beitrag des Funktionsaufruf-Frameworks, des MCP-Kommunikationsprotokolls und der plugin-basierten Aufrufmechanismus-Implementierungscode. Durch standardisiertes Befehlsplanungssystem und dynamische Erweiterungsfähigkeiten wird die Interaktionseffizienz und funktionale Erweiterbarkeit von Frontend-Geräten (IoT) erheblich verbessert |
+|    <img src="../images/logo_junsen.png" width="160">    |                      [huangjunsen](https://github.com/huangjunsen0406)                      | Dank an [huangjunsen](https://github.com/huangjunsen0406) für den Beitrag des `Smart Control Console Mobile`-Moduls, das eine effiziente Steuerung und Echtzeit-Interaktion über mobile Geräte ermöglicht und die Betriebsbequemlichkeit und Verwaltungseffizienz des Systems in mobilen Szenarien erheblich verbessert                                                                                         |
+|   <img src="../images/logo_huiyuan.png" width="160">    |                           [Huiyuan Design](http://ui.kwd988.net/)                           | Dank an [Huiyuan Design](http://ui.kwd988.net/) für die Bereitstellung professioneller visueller Lösungen für dieses Projekt, unter Verwendung ihrer Design-Praxiserfahrung im Dienst von über tausend Unternehmen, um die Produktbenutzererfahrung dieses Projekts zu stärken                                                                                                                                  |
+|    <img src="../images/logo_qinren.png" width="160">    |               [Xi'an Qinren Information Technology](https://www.029app.com/)                | Dank an [Xi'an Qinren Information Technology](https://www.029app.com/) für die Vertiefung des visuellen Systems dieses Projekts und die Sicherstellung der Konsistenz und Erweiterbarkeit des Gesamtdesignstils in Multi-Szenario-Anwendungen                                                                                                                                                                   |
+| <img src="../images/logo_contributors.png" width="160"> | [Code-Mitwirkende](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Dank an [alle Code-Mitwirkenden](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), Ihre Bemühungen haben das Projekt robuster und leistungsfähiger gemacht.                                                                                                                                                                                                                             |
 
 <a href="https://star-history.com/#xinnan-tech/xiaozhi-esp32-server&Date">
 

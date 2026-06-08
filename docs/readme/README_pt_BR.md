@@ -66,7 +66,7 @@ Quer ver os efeitos de uso? Clique nos vídeos abaixo 🎥
     <td>
       <a href="https://www.bilibili.com/video/BV1WEcxzFEAT" target="_blank">
         <picture>
-          <img alt="小智数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
+          <img alt="小鹿数字人 支持语音唤醒" src="docs/images/demo8.png" /></picture>
       </a>
     </td>
     <td>
@@ -165,10 +165,11 @@ Quer ver os efeitos de uso? Clique nos vídeos abaixo 🎥
 Este projeto oferece dois métodos de implantação. Por favor, escolha de acordo com suas necessidades específicas:
 
 #### 🚀 Seleção do Método de Implantação
-| Método de Implantação | Funcionalidades | Cenários Aplicáveis | Documentação de Implantação | Requisitos de Configuração | Tutoriais em Vídeo |
-|---------|------|---------|---------|---------|---------|
-| **Instalação Simplificada** | Diálogo inteligente, gerenciamento de agente único | Ambientes de baixa configuração, dados armazenados em arquivos de configuração, sem necessidade de banco de dados | [①Versão Docker](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Implantação via Código-Fonte](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)| 2 núcleos 4GB se usar `FunASR`, 2 núcleos 2GB se todas APIs | - |
-| **Instalação de Módulo Completo** | Diálogo inteligente, gerenciamento multiusuário, gerenciamento de múltiplos agentes, operação de interface do console inteligente | Experiência com funcionalidade completa, dados armazenados em banco de dados |[①Versão Docker](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Implantação via Código-Fonte](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Tutorial de Atualização Automática via Código-Fonte](../dev-ops-integration.md) | 4 núcleos 8GB se usar `FunASR`, 2 núcleos 4GB se todas APIs| [Tutorial em Vídeo de Inicialização via Código-Fonte Local](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
+
+| Método de Implantação             | Funcionalidades                                                                                                                   | Cenários Aplicáveis                                                                                               | Documentação de Implantação                                                                                                                                                                                                                                                                                                                                                    | Requisitos de Configuração                                  | Tutoriais em Vídeo                                                                                       |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Instalação Simplificada**       | Diálogo inteligente, gerenciamento de agente único                                                                                | Ambientes de baixa configuração, dados armazenados em arquivos de configuração, sem necessidade de banco de dados | [①Versão Docker](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Implantação via Código-Fonte](../Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)                                                                                                                     | 2 núcleos 4GB se usar `FunASR`, 2 núcleos 2GB se todas APIs | -                                                                                                        |
+| **Instalação de Módulo Completo** | Diálogo inteligente, gerenciamento multiusuário, gerenciamento de múltiplos agentes, operação de interface do console inteligente | Experiência com funcionalidade completa, dados armazenados em banco de dados                                      | [①Versão Docker](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Implantação via Código-Fonte](../Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Tutorial de Atualização Automática via Código-Fonte](../dev-ops-integration.md) | 4 núcleos 8GB se usar `FunASR`, 2 núcleos 4GB se todas APIs | [Tutorial em Vídeo de Inicialização via Código-Fonte Local](https://www.bilibili.com/video/BV1wBJhz4Ewe) |
 
 Perguntas frequentes e tutoriais relacionados podem ser consultados [neste link](../FAQ.md)
 
@@ -184,39 +185,43 @@ Endereço da Interface WebSocket: wss://2662r3426b.vicp.fun/xiaozhi/v1/
 ```
 
 #### 🚩 Descrição e Recomendações de Configuração
+
 > [!Note]
 > Este projeto oferece dois esquemas de configuração:
 >
 > 1. `Configurações Gratuitas Nível Básico`: Adequado para uso pessoal e doméstico, todos os componentes utilizam soluções gratuitas, sem necessidade de pagamento adicional.
->
 > 2. `Configuração de Streaming`: Adequado para demonstrações, treinamentos, cenários com mais de 2 usuários simultâneos, etc. Utiliza tecnologia de processamento em streaming para velocidade de resposta mais rápida e melhor experiência.
 >
 > A partir da versão `0.5.2`, o projeto suporta configuração de streaming. Em comparação com versões anteriores, a velocidade de resposta é melhorada em aproximadamente `2,5 segundos`, melhorando significativamente a experiência do usuário.
 
-| Nome do Módulo | Configurações Gratuitas Nível Básico | Configuração de Streaming |
-|:---:|:---:|:---:|
-| ASR(Reconhecimento de Fala) | FunASR(Local) | 👍XunfeiStreamASR(Xunfei Streaming) |
-| LLM(Modelo de Linguagem) | glm-4-flash(Zhipu) | 👍qwen-flash(Alibaba Bailian) |
-| VLLM(Modelo de Visão) | glm-4v-flash(Zhipu) | 👍qwen3.5-flash(Alibaba Bailian) |
-| TTS(Síntese de Voz) | EdgeTTS(Microsoft) | 👍HuoshanDoubleStreamTTS(Volcano Streaming) |
-| Intent(Reconhecimento de Intenção) | function_call(Chamada de função) | function_call(Chamada de função) |
-| Memory(Função de Memória) | mem_local_short(Memória local de curto prazo) | mem_local_short(Memória local de curto prazo) |
+|           Nome do Módulo           |     Configurações Gratuitas Nível Básico      |           Configuração de Streaming           |
+| :--------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|    ASR(Reconhecimento de Fala)     |                 FunASR(Local)                 |      👍XunfeiStreamASR(Xunfei Streaming)      |
+|      LLM(Modelo de Linguagem)      |              glm-4-flash(Zhipu)               |         👍qwen-flash(Alibaba Bailian)         |
+|       VLLM(Modelo de Visão)        |              glm-4v-flash(Zhipu)              |       👍qwen3.5-flash(Alibaba Bailian)        |
+|        TTS(Síntese de Voz)         |              EdgeTTS(Microsoft)               |  👍HuoshanDoubleStreamTTS(Volcano Streaming)  |
+| Intent(Reconhecimento de Intenção) |       function_call(Chamada de função)        |       function_call(Chamada de função)        |
+|     Memory(Função de Memória)      | mem_local_short(Memória local de curto prazo) | mem_local_short(Memória local de curto prazo) |
 
 Se você está preocupado com o tempo de resposta de cada componente, consulte o [Relatório de Teste de Desempenho dos Componentes Xiaozhi](https://github.com/xinnan-tech/xiaozhi-performance-research), e teste em seu próprio ambiente seguindo os métodos de teste do relatório.
 
 #### 🔧 Ferramentas de Teste
+
 Este projeto fornece as seguintes ferramentas de teste para ajudá-lo a verificar o sistema e escolher modelos adequados:
 
-| Nome da Ferramenta | Localização | Método de Uso | Descrição da Função |
-|:---:|:---|:---:|:---:|
-| Ferramenta de Teste de Interação por Áudio | main》digital-human》index.html | Execute `python start.py` em `main/digital-human` e depois abra `http://127.0.0.1:8006/index.html` | Testa as funções de reprodução e recepção de áudio, verifica se o processamento de áudio no lado Python está normal |
-| Ferramenta de Teste de Resposta de Modelo | main》xiaozhi-server》performance_tester.py | Execute `python performance_tester.py` | Testa a velocidade de resposta dos três módulos principais: ASR(reconhecimento de fala), LLM(modelo de linguagem), VLLM(modelo de visão), TTS(síntese de voz) |
+|             Nome da Ferramenta             | Localização                                 |                                           Método de Uso                                            |                                                                      Descrição da Função                                                                      |
+| :----------------------------------------: | :------------------------------------------ | :------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Ferramenta de Teste de Interação por Áudio | main》digital-human》index.html             | Execute `python start.py` em `main/digital-human` e depois abra `http://127.0.0.1:8006/index.html` |                      Testa as funções de reprodução e recepção de áudio, verifica se o processamento de áudio no lado Python está normal                      |
+| Ferramenta de Teste de Resposta de Modelo  | main》xiaozhi-server》performance_tester.py |                               Execute `python performance_tester.py`                               | Testa a velocidade de resposta dos três módulos principais: ASR(reconhecimento de fala), LLM(modelo de linguagem), VLLM(modelo de visão), TTS(síntese de voz) |
 
 > 💡 Nota: Ao testar a velocidade dos modelos, apenas os modelos com chaves configuradas serão testados.
 
 ---
+
 ## Lista de Funcionalidades ✨
+
 ### Implementado ✅
+
 ![请参考-全模块安装架构图](../images/deploy2.png)
 | Módulo de Funcionalidade | Descrição |
 |:---:|:---|
@@ -244,22 +249,24 @@ Se você é um desenvolvedor de software, aqui está uma [Carta Aberta aos Desen
 ---
 
 ## Ecossistema do Produto 👬
+
 Xiaozhi é um ecossistema. Ao utilizar este produto, você também pode conferir outros [projetos excelentes](https://github.com/78/xiaozhi-esp32/blob/main/README_zh.md#%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE) neste ecossistema
 
 ---
 
 ## Lista de Plataformas/Componentes Suportados 📋
+
 ### LLM Modelos de Linguagem
 
-| Método de Uso | Plataformas Suportadas | Plataformas Gratuitas |
-|:---:|:---:|:---:|
-| Chamadas via interface OpenAI | Alibaba Bailian, Volcano Engine, DeepSeek, Zhipu, Gemini, iFLYTEK | Zhipu, Gemini |
-| Chamadas via interface Ollama | Ollama | - |
-| Chamadas via interface Dify | Dify | - |
-| Chamadas via interface FastGPT | FastGPT | - |
-| Chamadas via interface Coze | Coze | - |
-| Chamadas via interface Xinference | Xinference | - |
-| Chamadas via interface HomeAssistant | HomeAssistant | - |
+|            Método de Uso             |                      Plataformas Suportadas                       | Plataformas Gratuitas |
+| :----------------------------------: | :---------------------------------------------------------------: | :-------------------: |
+|    Chamadas via interface OpenAI     | Alibaba Bailian, Volcano Engine, DeepSeek, Zhipu, Gemini, iFLYTEK |     Zhipu, Gemini     |
+|    Chamadas via interface Ollama     |                              Ollama                               |           -           |
+|     Chamadas via interface Dify      |                               Dify                                |           -           |
+|    Chamadas via interface FastGPT    |                              FastGPT                              |           -           |
+|     Chamadas via interface Coze      |                               Coze                                |           -           |
+|  Chamadas via interface Xinference   |                            Xinference                             |           -           |
+| Chamadas via interface HomeAssistant |                           HomeAssistant                           |           -           |
 
 Na verdade, qualquer LLM que suporte chamadas via interface openai pode ser integrado e utilizado.
 
@@ -267,9 +274,9 @@ Na verdade, qualquer LLM que suporte chamadas via interface openai pode ser inte
 
 ### VLLM Modelos de Visão
 
-| Método de Uso | Plataformas Suportadas | Plataformas Gratuitas |
-|:---:|:---:|:---:|
-| Chamadas via interface OpenAI | Alibaba Bailian, Zhipu ChatGLMVLLM | Zhipu ChatGLMVLLM |
+|         Método de Uso         |       Plataformas Suportadas       | Plataformas Gratuitas |
+| :---------------------------: | :--------------------------------: | :-------------------: |
+| Chamadas via interface OpenAI | Alibaba Bailian, Zhipu ChatGLMVLLM |   Zhipu ChatGLMVLLM   |
 
 Na verdade, qualquer VLLM que suporte chamadas via interface OpenAI pode ser integrado e utilizado.
 
@@ -277,79 +284,78 @@ Na verdade, qualquer VLLM que suporte chamadas via interface OpenAI pode ser int
 
 ### TTS Síntese de Voz
 
-| Método de Uso | Plataformas Suportadas | Plataformas Gratuitas |
-|:---:|:---:|:---:|
-| Chamadas via interface | EdgeTTS, iFLYTEK, Volcano Engine, Tencent Cloud, Alibaba Cloud e Bailian, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi Streaming TTS, MinimaxTTS | Lingxi Streaming TTS, EdgeTTS, CosyVoiceSiliconflow(parcial) |
-| Serviços locais | FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
+|     Método de Uso      |                                                                                Plataformas Suportadas                                                                                 |                       Plataformas Gratuitas                       |
+| :--------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------: |
+| Chamadas via interface | EdgeTTS, iFLYTEK, Volcano Engine, Tencent Cloud, Alibaba Cloud e Bailian, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi Streaming TTS, MinimaxTTS |   Lingxi Streaming TTS, EdgeTTS, CosyVoiceSiliconflow(parcial)    |
+|    Serviços locais     |                                                           FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech                                                           | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
 
 ---
 
 ### VAD Detecção de Atividade Vocal
 
 | Tipo | Nome da Plataforma | Método de Uso | Modelo de Preço | Observações |
-|:---:|:---------:|:----:|:----:|:--:|
-| VAD | SileroVAD | Uso local | Gratuito | |
+| :--: | :----------------: | :-----------: | :-------------: | :---------: |
+| VAD  |     SileroVAD      |   Uso local   |    Gratuito     |             |
 
 ---
 
 ### ASR Reconhecimento de Fala
 
-| Método de Uso | Plataformas Suportadas | Plataformas Gratuitas |
-|:---:|:---:|:---:|
-| Uso local | FunASR, SherpaASR | FunASR, SherpaASR |
-| Chamadas via interface | FunASRServer, Volcano Engine, iFLYTEK, Tencent Cloud, Alibaba Cloud, Baidu Cloud, OpenAI ASR | FunASRServer |
+|     Método de Uso      |                                    Plataformas Suportadas                                    | Plataformas Gratuitas |
+| :--------------------: | :------------------------------------------------------------------------------------------: | :-------------------: |
+|       Uso local        |                                      FunASR, SherpaASR                                       |   FunASR, SherpaASR   |
+| Chamadas via interface | FunASRServer, Volcano Engine, iFLYTEK, Tencent Cloud, Alibaba Cloud, Baidu Cloud, OpenAI ASR |     FunASRServer      |
 
 ---
 
 ### Reconhecimento de Impressão Vocal
 
 | Método de Uso | Plataformas Suportadas | Plataformas Gratuitas |
-|:---:|:---:|:---:|
-| Uso local | 3D-Speaker | 3D-Speaker |
+| :-----------: | :--------------------: | :-------------------: |
+|   Uso local   |       3D-Speaker       |      3D-Speaker       |
 
 ---
 
 ### Armazenamento de Memória
 
-| Tipo | Nome da Plataforma | Método de Uso | Modelo de Preço | Observações |
-|:------:|:---------------:|:----:|:---------:|:--:|
-| Memória | mem0ai | Chamadas via interface | Cota de 1000 vezes/mês | |
-| Memória | [powermem](../powermem-integration.md) | Resumo local | Depende do LLM e BD | OceanBase de código aberto, suporta busca inteligente |
-| Memória | mem_local_short | Resumo local | Gratuito | |
-| Memória | nomem | Modo sem memória | Gratuito | |
+|  Tipo   |           Nome da Plataforma           |     Método de Uso      |    Modelo de Preço     |                      Observações                      |
+| :-----: | :------------------------------------: | :--------------------: | :--------------------: | :---------------------------------------------------: |
+| Memória |                 mem0ai                 | Chamadas via interface | Cota de 1000 vezes/mês |                                                       |
+| Memória | [powermem](../powermem-integration.md) |      Resumo local      |  Depende do LLM e BD   | OceanBase de código aberto, suporta busca inteligente |
+| Memória |            mem_local_short             |      Resumo local      |        Gratuito        |                                                       |
+| Memória |                 nomem                  |    Modo sem memória    |        Gratuito        |                                                       |
 
 ---
 
 ### Reconhecimento de Intenção
 
-| Tipo | Nome da Plataforma | Método de Uso | Modelo de Preço | Observações |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Intenção | intent_llm | Chamadas via interface | Baseado no preço do LLM | Reconhece intenção através de modelos de linguagem, forte generalização |
-| Intenção | function_call | Chamadas via interface | Baseado no preço do LLM | Completa a intenção através de chamada de função do modelo de linguagem, velocidade rápida, bom resultado |
-| Intenção | nointent | Modo sem intenção | Gratuito | Não realiza reconhecimento de intenção, retorna diretamente o resultado do diálogo |
+|   Tipo   | Nome da Plataforma |     Método de Uso      |     Modelo de Preço     |                                                Observações                                                |
+| :------: | :----------------: | :--------------------: | :---------------------: | :-------------------------------------------------------------------------------------------------------: |
+| Intenção |     intent_llm     | Chamadas via interface | Baseado no preço do LLM |                  Reconhece intenção através de modelos de linguagem, forte generalização                  |
+| Intenção |   function_call    | Chamadas via interface | Baseado no preço do LLM | Completa a intenção através de chamada de função do modelo de linguagem, velocidade rápida, bom resultado |
+| Intenção |      nointent      |   Modo sem intenção    |        Gratuito         |            Não realiza reconhecimento de intenção, retorna diretamente o resultado do diálogo             |
 
 ---
 
 ### RAG Geração Aumentada por Recuperação
 
-| Tipo | Nome da Plataforma | Método de Uso | Modelo de Preço | Observações |
-|:------:|:-------------:|:----:|:-------:|:---------------------:|
-| RAG | ragflow | Chamadas via interface | Cobrado com base nos tokens consumidos para fatiamento e segmentação de palavras | Utiliza o recurso de geração aumentada por recuperação do RagFlow para fornecer respostas de diálogo mais precisas |
+| Tipo | Nome da Plataforma |     Método de Uso      |                                 Modelo de Preço                                  |                                                    Observações                                                     |
+| :--: | :----------------: | :--------------------: | :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: |
+| RAG  |      ragflow       | Chamadas via interface | Cobrado com base nos tokens consumidos para fatiamento e segmentação de palavras | Utiliza o recurso de geração aumentada por recuperação do RagFlow para fornecer respostas de diálogo mais precisas |
 
 ---
 
 ## Agradecimentos 🙏
 
-| Logo | Projeto/Empresa | Descrição |
-|:---:|:---:|:---|
-| <img src="../images/logo_bailing.png" width="160"> | [Robô de Diálogo por Voz Bailing](https://github.com/wwbin2017/bailing) | Este projeto foi inspirado pelo [Robô de Diálogo por Voz Bailing](https://github.com/wwbin2017/bailing) e implementado com base nele |
-| <img src="../images/logo_tenclass.png" width="160"> | [Tenclass](https://www.tenclass.com/) | Agradecimentos à [Tenclass](https://www.tenclass.com/) por formular protocolos de comunicação padrão, soluções de compatibilidade multidispositivo e demonstrações práticas de cenários de alta concorrência para o ecossistema Xiaozhi; fornecendo suporte completo de documentação técnica para este projeto |
-| <img src="../images/logo_xuanfeng.png" width="160"> | [Xuanfeng Technology (玄凤科技)](https://github.com/Eric0308) | Agradecimentos à [Xuanfeng Technology](https://github.com/Eric0308) por contribuir com o framework de chamada de função, protocolo de comunicação MCP e implementação do mecanismo de chamada baseado em plugins. Através de um sistema padronizado de agendamento de instruções e capacidades de expansão dinâmica, melhora significativamente a eficiência de interação e extensibilidade funcional dos dispositivos de frontend (IoT) |
-| <img src="../images/logo_junsen.png" width="160"> | [huangjunsen](https://github.com/huangjunsen0406) | Agradecimentos a [huangjunsen](https://github.com/huangjunsen0406) por contribuir com o módulo `Console de Controle Inteligente Mobile`, que permite controle eficiente e interação em tempo real em dispositivos móveis, melhorando significativamente a conveniência operacional e a eficiência de gerenciamento do sistema em cenários móveis. |
-| <img src="../images/logo_huiyuan.png" width="160"> | [Huiyuan Design (汇远设计)](http://ui.kwd988.net/) | Agradecimentos à [Huiyuan Design](http://ui.kwd988.net/) por fornecer soluções visuais profissionais para este projeto, utilizando sua experiência prática de design atendendo mais de mil empresas para potencializar a experiência do usuário deste produto |
-| <img src="../images/logo_qinren.png" width="160"> | [Xi'an Qinren Information Technology (西安勤人信息科技)](https://www.029app.com/) | Agradecimentos à [Xi'an Qinren Information Technology](https://www.029app.com/) por aprofundar o sistema visual deste projeto, garantindo consistência e extensibilidade do estilo de design geral em aplicações de múltiplos cenários |
-| <img src="../images/logo_contributors.png" width="160"> | [Contribuidores de Código](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Agradecimentos a [todos os contribuidores de código](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), seus esforços tornaram o projeto mais robusto e poderoso. |
-
+|                          Logo                           |                                           Projeto/Empresa                                           | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| :-----------------------------------------------------: | :-------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   <img src="../images/logo_bailing.png" width="160">    |               [Robô de Diálogo por Voz Bailing](https://github.com/wwbin2017/bailing)               | Este projeto foi inspirado pelo [Robô de Diálogo por Voz Bailing](https://github.com/wwbin2017/bailing) e implementado com base nele                                                                                                                                                                                                                                                                                                     |
+|   <img src="../images/logo_tenclass.png" width="160">   |                                [Tenclass](https://www.tenclass.com/)                                | Agradecimentos à [Tenclass](https://www.tenclass.com/) por formular protocolos de comunicação padrão, soluções de compatibilidade multidispositivo e demonstrações práticas de cenários de alta concorrência para o ecossistema Xiaozhi; fornecendo suporte completo de documentação técnica para este projeto                                                                                                                           |
+|   <img src="../images/logo_xuanfeng.png" width="160">   |                    [Xuanfeng Technology (玄凤科技)](https://github.com/Eric0308)                    | Agradecimentos à [Xuanfeng Technology](https://github.com/Eric0308) por contribuir com o framework de chamada de função, protocolo de comunicação MCP e implementação do mecanismo de chamada baseado em plugins. Através de um sistema padronizado de agendamento de instruções e capacidades de expansão dinâmica, melhora significativamente a eficiência de interação e extensibilidade funcional dos dispositivos de frontend (IoT) |
+|    <img src="../images/logo_junsen.png" width="160">    |                          [huangjunsen](https://github.com/huangjunsen0406)                          | Agradecimentos a [huangjunsen](https://github.com/huangjunsen0406) por contribuir com o módulo `Console de Controle Inteligente Mobile`, que permite controle eficiente e interação em tempo real em dispositivos móveis, melhorando significativamente a conveniência operacional e a eficiência de gerenciamento do sistema em cenários móveis.                                                                                        |
+|   <img src="../images/logo_huiyuan.png" width="160">    |                         [Huiyuan Design (汇远设计)](http://ui.kwd988.net/)                          | Agradecimentos à [Huiyuan Design](http://ui.kwd988.net/) por fornecer soluções visuais profissionais para este projeto, utilizando sua experiência prática de design atendendo mais de mil empresas para potencializar a experiência do usuário deste produto                                                                                                                                                                            |
+|    <img src="../images/logo_qinren.png" width="160">    |          [Xi'an Qinren Information Technology (西安勤人信息科技)](https://www.029app.com/)          | Agradecimentos à [Xi'an Qinren Information Technology](https://www.029app.com/) por aprofundar o sistema visual deste projeto, garantindo consistência e extensibilidade do estilo de design geral em aplicações de múltiplos cenários                                                                                                                                                                                                   |
+| <img src="../images/logo_contributors.png" width="160"> | [Contribuidores de Código](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Agradecimentos a [todos os contribuidores de código](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), seus esforços tornaram o projeto mais robusto e poderoso.                                                                                                                                                                                                                                                 |
 
 <a href="https://star-history.com/#xinnan-tech/xiaozhi-esp32-server&Date">
 

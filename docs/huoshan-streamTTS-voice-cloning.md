@@ -3,14 +3,17 @@
 本教程分为4个阶段：准备阶段、配置阶段、克隆阶段、使用阶段。主要是介绍通过智控台配置火山双流式语音合成+音色克隆的过程。
 
 ## 第一阶段：准备阶段
+
 超级管理员先预先把火山引擎服务开通好，获取到App Id，Access Token。默认火上引擎会赠送一个音色资源。这个音色资源需要把它复制到本项目里。
 
 如果你想克隆多个音色，需要购买开通多个音色资源。只要把每个音色资源的声音ID(S_xxxxx)复制到本项目。然后分配给系统的账号使用即可。以下是详细步骤：
 
 ### 1.开通火山引擎服务
-访问 https://console.volcengine.com/speech/app  在应用管理创建应用，勾选语音合成大模型和声音复刻大模型。
+
+访问 https://console.volcengine.com/speech/app 在应用管理创建应用，勾选语音合成大模型和声音复刻大模型。
 
 ### 2.获取音色资源ID
+
 访问 https://console.volcengine.com/speech/service/9999 复制三项内容，分别是App Id，Access Token以及声音ID(S_xxxxx)。如图
 
 ![获取音色资源](images/image-clone-integration-01.png)
@@ -55,4 +58,4 @@
 语音合成(TTS)选择“火山双流式语音合成”。在列表里，找到名字带有“克隆音色”的音色资源（如图），选择它，点击保存。
 ![选择音色](images/image-clone-integration-03.png)
 
-接下来，可以唤醒小智和它对话。
+接下来，可以唤醒小鹿和它对话。

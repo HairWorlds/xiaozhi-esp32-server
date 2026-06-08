@@ -10,25 +10,31 @@
       <div class="content-panel">
         <div class="content-area">
           <el-card class="config-card" shadow="never">
-              <div class="config-header">
+            <div class="config-header">
               <!-- 使用角色配置页面相同的彩色图标效果 -->
               <div class="header-icon">
-                <img loading="lazy" src="@/assets/home/setting-user.png" alt="">
+                <img loading="lazy" src="@/assets/home/setting-user.png" alt="" />
               </div>
               <span class="header-title">{{ form.agentName }}</span>
               <div class="header-actions">
-                <el-button type="primary" class="save-btn" @click="saveConfig">{{ $t('templateQuickConfig.saveConfig') }}</el-button>
-                <el-button class="reset-btn" @click="resetConfig">{{ $t('templateQuickConfig.resetConfig') }}</el-button>
-                <button class="custom-close-btn" @click="goToHome">
-                  ×
-                </button>
+                <el-button type="primary" class="save-btn" @click="saveConfig">{{
+                  $t('templateQuickConfig.saveConfig')
+                }}</el-button>
+                <el-button class="reset-btn" @click="resetConfig">{{
+                  $t('templateQuickConfig.resetConfig')
+                }}</el-button>
+                <button class="custom-close-btn" @click="goToHome">×</button>
               </div>
             </div>
             <div class="divider"></div>
 
             <el-form ref="form" :model="form" label-width="72px" class="full-height-form">
               <!-- 助手昵称 -->
-              <el-form-item :label="$t('templateQuickConfig.agentSettings.agentName')" prop="agentName" class="nickname-item">
+              <el-form-item
+                :label="$t('templateQuickConfig.agentSettings.agentName')"
+                prop="agentName"
+                class="nickname-item"
+              >
                 <el-input
                   v-model="form.agentName"
                   :placeholder="$t('templateQuickConfig.agentSettings.agentNamePlaceholder')"
@@ -36,9 +42,13 @@
                   class="form-input"
                 />
               </el-form-item>
-              
+
               <!-- 角色介绍 -->
-              <el-form-item :label="$t('templateQuickConfig.agentSettings.systemPrompt')" prop="systemPrompt" class="description-item">
+              <el-form-item
+                :label="$t('templateQuickConfig.agentSettings.systemPrompt')"
+                prop="systemPrompt"
+                class="description-item"
+              >
                 <el-input
                   v-model="form.systemPrompt"
                   type="textarea"
@@ -60,19 +70,19 @@
 </template>
 
 <script>
-import HeaderBar from "@/components/HeaderBar.vue";
+import HeaderBar from '@/components/HeaderBar.vue';
 import agentApi from '@/apis/module/agent';
-import VersionFooter from "@/components/VersionFooter.vue";
+import VersionFooter from '@/components/VersionFooter.vue';
 
 // 默认模型配置常量
 const DEFAULT_MODEL_CONFIG = {
-  ttsModelId: "TTS_EdgeTTS",
-  vadModelId: "VAD_SileroVAD",
-  asrModelId: "ASR_FunASR",
-  llmModelId: "LLM_ChatGLMLLM",
-  vllmModelId: "VLLM_ChatGLMVLLM",
-  memModelId: "Memory_nomem",
-  intentModelId: "Intent_function_call"
+  ttsModelId: 'TTS_EdgeTTS',
+  vadModelId: 'VAD_SileroVAD',
+  asrModelId: 'ASR_FunASR',
+  llmModelId: 'LLM_ChatGLMLLM',
+  vllmModelId: 'VLLM_ChatGLMVLLM',
+  memModelId: 'Memory_nomem',
+  intentModelId: 'Intent_function_call'
 };
 
 export default {
@@ -81,9 +91,9 @@ export default {
   data() {
     return {
       form: {
-        agentCode: "小智",
-        agentName: "",
-        systemPrompt: "",
+        agentCode: '小鹿',
+        agentName: '',
+        systemPrompt: '',
         sort: 0,
         model: { ...DEFAULT_MODEL_CONFIG }
       },
@@ -96,18 +106,18 @@ export default {
     goToHome() {
       this.$router.push('/agent-template-management');
     },
-    
+
     // 保存配置
     saveConfig() {
       const configData = this.prepareConfigData();
-      
+
       if (this.templateId) {
         this.updateExistingTemplate(configData);
       } else {
         this.createNewTemplate(configData);
       }
     },
-    
+
     // 准备配置数据
     prepareConfigData() {
       return {
@@ -121,64 +131,62 @@ export default {
         ...this.form.model
       };
     },
-    
+
     // 更新现有模板
     updateExistingTemplate(configData) {
       agentApi.updateAgentTemplate(configData, (res) => {
         if (res && res.data && res.data.code === 0) {
-          this.$message.success({ 
-            message: this.$t('templateQuickConfig.saveSuccess'), 
-            showClose: true 
+          this.$message.success({
+            message: this.$t('templateQuickConfig.saveSuccess'),
+            showClose: true
           });
           this.originalForm = JSON.parse(JSON.stringify(this.form));
         } else {
-          this.$message.error({ 
-            message: res?.data?.msg || this.$t('templateQuickConfig.saveFailed'), 
-            showClose: true 
+          this.$message.error({
+            message: res?.data?.msg || this.$t('templateQuickConfig.saveFailed'),
+            showClose: true
           });
         }
       });
     },
-    
+
     // 创建新模板
     createNewTemplate(configData) {
       agentApi.addAgentTemplate(configData, (res) => {
         if (res && res.data && res.data.code === 0) {
-          this.$message.success({ 
-            message: this.$t('templateQuickConfig.saveSuccess'), 
-            showClose: true 
+          this.$message.success({
+            message: this.$t('templateQuickConfig.saveSuccess'),
+            showClose: true
           });
           this.goToHome();
         } else {
-          this.$message.error({ 
-            message: res?.data?.msg || this.$t('templateQuickConfig.saveFailed'), 
-            showClose: true 
+          this.$message.error({
+            message: res?.data?.msg || this.$t('templateQuickConfig.saveFailed'),
+            showClose: true
           });
         }
       });
     },
-    
+
     // 重置配置
     resetConfig() {
-      this.$confirm(
-        this.$t('templateQuickConfig.confirmReset'), 
-        this.$t('common.tip'), 
-        {
-          confirmButtonText: this.$t('common.confirm'),
-          cancelButtonText: this.$t('common.cancel'),
-          type: 'warning'
-        }
-      ).then(() => {
-        if (this.originalForm) {
-          this.form = JSON.parse(JSON.stringify(this.originalForm));
-        }
-        this.$message.success({ 
-          message: this.$t('templateQuickConfig.resetSuccess'), 
-          showClose: true 
-        });
-      }).catch(() => {});
+      this.$confirm(this.$t('templateQuickConfig.confirmReset'), this.$t('common.tip'), {
+        confirmButtonText: this.$t('common.confirm'),
+        cancelButtonText: this.$t('common.cancel'),
+        type: 'warning'
+      })
+        .then(() => {
+          if (this.originalForm) {
+            this.form = JSON.parse(JSON.stringify(this.originalForm));
+          }
+          this.$message.success({
+            message: this.$t('templateQuickConfig.resetSuccess'),
+            showClose: true
+          });
+        })
+        .catch(() => {});
     },
-    
+
     // 根据ID获取模板
     fetchTemplateById(templateId) {
       agentApi.getAgentTemplateById(templateId, (res) => {
@@ -192,7 +200,7 @@ export default {
         }
       });
     },
-    
+
     // 应用模板数据
     applyTemplateData(templateData) {
       this.form = {
@@ -212,27 +220,27 @@ export default {
         }
       };
     },
-    
+
     // 设置默认模板值
     setDefaultTemplateValues() {
       this.form = {
         ...this.form,
         agentName: this.$t('templateQuickConfig.newTemplate'),
-        agentCode: '小智',
+        agentCode: '小鹿',
         systemPrompt: '',
         sort: 1
       };
-      
+
       this.originalForm = JSON.parse(JSON.stringify(this.form));
     },
-    
+
     // 获取模板列表并设置排序号
     fetchTemplateListForSort() {
       agentApi.getAgentTemplate((res) => {
         if (res && res.data && res.data.code === 0) {
           const templateList = res.data.data || [];
           if (templateList.length > 0) {
-            const maxSort = Math.max(...templateList.map(t => t.sort || 0));
+            const maxSort = Math.max(...templateList.map((t) => t.sort || 0));
             this.form.sort = maxSort + 1;
           } else {
             this.form.sort = 1;
@@ -240,16 +248,16 @@ export default {
         } else {
           this.form.sort = 1;
         }
-        
+
         this.originalForm = JSON.parse(JSON.stringify(this.form));
       });
     }
   },
-  
+
   // 组件挂载时执行初始化
   mounted() {
     const templateId = this.$route.query.templateId;
-    
+
     if (templateId) {
       // 编辑模式：加载现有模板
       this.fetchTemplateById(templateId);
@@ -442,8 +450,8 @@ export default {
 }
 
 .custom-close-btn:hover {
-  color: #409EFF;
-  border-color: #409EFF;
+  color: #409eff;
+  border-color: #409eff;
 }
 
 .header-actions {

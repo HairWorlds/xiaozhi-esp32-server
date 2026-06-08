@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
- * 小智设备聊天上报请求
+ * 小鹿设备聊天上报请求
  *
  * @author Haotian
  * @version 1.0, 2025/5/8
  */
 @Data
-@Schema(description = "小智设备聊天上报请求")
+@Schema(description = "小鹿设备聊天上报请求")
 public class AgentChatHistoryReportDTO {
     @Schema(description = "MAC地址", example = "00:11:22:33:44:55")
     @NotBlank

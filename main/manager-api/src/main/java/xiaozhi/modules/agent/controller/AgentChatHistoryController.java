@@ -53,13 +53,13 @@ public class AgentChatHistoryController {
     private final RedisUtils redisUtils;
 
     /**
-     * 小智服务聊天上报请求
+     * 小鹿服务聊天上报请求
      * <p>
-     * 小智服务聊天上报请求，包含Base64编码的音频数据和相关信息。
+     * 小鹿服务聊天上报请求，包含Base64编码的音频数据和相关信息。
      *
      * @param request 包含上传文件及相关信息的请求对象
      */
-    @Operation(summary = "小智服务聊天上报请求")
+    @Operation(summary = "小鹿服务聊天上报请求")
     @PostMapping("/report")
     public Result<Boolean> uploadFile(@Valid @RequestBody AgentChatHistoryReportDTO request) {
         Boolean result = agentChatHistoryBizService.report(request);
@@ -68,7 +68,7 @@ public class AgentChatHistoryController {
 
     /**
      * 获取聊天记录下载链接
-     * 
+     *
      * @param agentId   智能体ID
      * @param sessionId 会话ID
      * @return UUID作为下载标识
@@ -95,7 +95,7 @@ public class AgentChatHistoryController {
 
     /**
      * 下载本会话聊天记录
-     * 
+     *
      * @param uuid     下载标识
      * @param response HTTP响应
      */
@@ -128,7 +128,7 @@ public class AgentChatHistoryController {
 
     /**
      * 下载本会话及前20条会话聊天记录
-     * 
+     *
      * @param uuid     下载标识
      * @param response HTTP响应
      */
@@ -192,7 +192,7 @@ public class AgentChatHistoryController {
 
     /**
      * 下载指定会话的聊天记录
-     * 
+     *
      * @param agentId    智能体ID
      * @param sessionIds 会话ID列表
      * @param response   HTTP响应

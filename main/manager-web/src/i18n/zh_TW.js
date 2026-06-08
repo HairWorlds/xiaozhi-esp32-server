@@ -204,7 +204,8 @@ export default {
   'firmwareDialog.firmwareFile': '固件文件',
   'firmwareDialog.clickUpload': '點擊上傳',
   'firmwareDialog.uploadTip': '只能上傳固件文件(.bin/.apk)，且不超過100MB',
-  'firmwareDialog.uploadHint': '溫馨提示：請上傳合併前的xiaozhi.bin文件，而不是合併後的merged-binary.bin文件',
+  'firmwareDialog.uploadHint':
+    '溫馨提示：請上傳合併前的xiaozhi.bin文件，而不是合併後的merged-binary.bin文件',
   'firmwareDialog.remark': '備註',
   'firmwareDialog.remarkPlaceholder': '請輸入備註信息',
   'firmwareDialog.requiredFirmwareName': '請輸入固件名稱(板子+版本號)',
@@ -298,7 +299,7 @@ export default {
 
   // 註冊頁面相關
   'register.title': '建立帳號',
-  'register.welcome': '歡迎使用小智慧AI',
+  'register.welcome': '歡迎使用小鹿慧AI',
   'register.usernamePlaceholder': '請輸入用戶名',
   'register.mobilePlaceholder': '請輸入手機號碼',
   'register.captchaPlaceholder': '請輸入驗證碼',
@@ -560,7 +561,8 @@ export default {
   'cache.notSupported': '您的瀏覽器不支援Cache API或Service Worker未安裝',
   'cache.refreshPage': '刷新頁面',
   'cache.noCachedResources': '未發現緩存的CDN資源',
-  'cache.noCachedResourcesDesc': 'Service Worker可能尚未完成初始化或緩存尚未建立。請刷新頁面或等待一會後再試。',
+  'cache.noCachedResourcesDesc':
+    'Service Worker可能尚未完成初始化或緩存尚未建立。請刷新頁面或等待一會後再試。',
   'cache.cdnCacheStatus': 'CDN資源緩存狀態',
   'cache.totalCachedResources': '共發現 {count} 個緩存資源',
   'cache.jsResources': 'JavaScript 資源 ({count})',
@@ -582,7 +584,7 @@ export default {
   'button.close': '關閉',
 
   // 系统信息
-  'system.name': '小智服務',
+  'system.name': '小鹿服務',
 
   // 声纹相关
   'voiceprint.management': '聲紋管理',
@@ -715,7 +717,7 @@ export default {
 
   // 首頁文本
   'home.addAgent': '添加智能體',
-  'home.greeting': '你好小智',
+  'home.greeting': '你好小鹿',
   'home.wish': '讓我們度過美好的一天！',
   'home.languageModel': '語言模型',
   'home.voiceModel': '音色模型',
@@ -825,7 +827,8 @@ export default {
   'roleConfig.speedHint': '-100=最慢, 0=標準, 100=最快',
   'roleConfig.pitchHint': '-100=最低, 0=標準, 100=最高',
   'roleConfig.replacementWordLabel': '關聯替換詞',
-  'roleConfig.replacementWordTip': '語音合成時，強制把識別錯、多音字、專有名詞、敏感詞，替換成你指定的正確文本/發音，提升準確率、合規與體驗',
+  'roleConfig.replacementWordTip':
+    '語音合成時，強制把識別錯、多音字、專有名詞、敏感詞，替換成你指定的正確文本/發音，提升準確率、合規與體驗',
   'replacementDialog.selectPlaceholder': '請選擇',
   'roleConfig.pleaseEnterContent': '請輸入內容',
   'roleConfig.pleaseEnterLangCode': '請輸入語言編碼，如：zh_TW',
@@ -858,21 +861,30 @@ export default {
   // 表單欄位 Tooltip 提示說明
   'roleConfig.tooltip.agentName': '設定智慧體的名稱，用於標識和識別您的AI助手',
   'roleConfig.tooltip.roleTemplate': '從預設的角色模板中選擇，快速配置智慧體的基礎設定',
-  'roleConfig.tooltip.contextProvider': '在小智被喚醒時，獲取外部系統的資料，並將其動態注入到大模型的系統提示詞中',
+  'roleConfig.tooltip.contextProvider':
+    '在小鹿被喚醒時，獲取外部系統的資料，並將其動態注入到大模型的系統提示詞中',
   'roleConfig.tooltip.roleIntroduction': '定義AI助手的角色定位、人格特徵、行為規範和專業知識背景',
   'roleConfig.tooltip.memoryHis': '總結聊天記錄內容',
   'roleConfig.tooltip.languageCode': '設定語言代碼，如zh-TW、en-US等，用於特定功能識別',
   'roleConfig.tooltip.interactionLanguage': '設定互動語言，指定AI助手使用的主要語言進行交流',
-  'roleConfig.tooltip.vad': '語音活動檢測（Voice Activity Detection）：檢測用戶何時開始或結束說話，用於判斷對話的開始和結束，實現打斷功能',
-  'roleConfig.tooltip.asr': '自動語音識別（Automatic Speech Recognition）：將用戶的語音轉換為文字，是人機對話的第一步，支持多語言識別',
-  'roleConfig.tooltip.llm': '主語言模型（Large Language Model）：AI助手的"大腦"，負責理解用戶意圖、生成回答和執行各種任務',
+  'roleConfig.tooltip.vad':
+    '語音活動檢測（Voice Activity Detection）：檢測用戶何時開始或結束說話，用於判斷對話的開始和結束，實現打斷功能',
+  'roleConfig.tooltip.asr':
+    '自動語音識別（Automatic Speech Recognition）：將用戶的語音轉換為文字，是人機對話的第一步，支持多語言識別',
+  'roleConfig.tooltip.llm':
+    '主語言模型（Large Language Model）：AI助手的"大腦"，負責理解用戶意圖、生成回答和執行各種任務',
   'roleConfig.tooltip.slm': '小參數模型（Small Language Model）：用於智慧體喚醒，生成記憶總結標題',
-  'roleConfig.tooltip.vllm': '視覺大型語言模型（Visual LLM）：處理圖像和視頻理解，使AI助手能夠分析和描述攝像頭擷取的畫面內容',
-  'roleConfig.tooltip.intent': '意圖識別（Intent Detection）：分析用戶語音或文字，判斷用戶的真實意圖，如查詢、聊天、控制設備等',
-  'roleConfig.tooltip.memory': '記憶模型（Memory Model）：管理對話歷史的存儲和摘要，決定AI能否記住之前的對話內容，實現長期記憶功能',
-  'roleConfig.tooltip.tts': '語音合成（Text-to-Speech）：將文字轉換為自然語音，決定AI說話的聲音、語速和語調',
+  'roleConfig.tooltip.vllm':
+    '視覺大型語言模型（Visual LLM）：處理圖像和視頻理解，使AI助手能夠分析和描述攝像頭擷取的畫面內容',
+  'roleConfig.tooltip.intent':
+    '意圖識別（Intent Detection）：分析用戶語音或文字，判斷用戶的真實意圖，如查詢、聊天、控制設備等',
+  'roleConfig.tooltip.memory':
+    '記憶模型（Memory Model）：管理對話歷史的存儲和摘要，決定AI能否記住之前的對話內容，實現長期記憶功能',
+  'roleConfig.tooltip.tts':
+    '語音合成（Text-to-Speech）：將文字轉換為自然語音，決定AI說話的聲音、語速和語調',
   'roleConfig.tooltip.language': '選擇音色所屬的語言，系統將篩選出支援該語言的可用音色',
-  'roleConfig.tooltip.voiceType': '選擇AI助手說話的聲音，不同音色具有不同的聲音特點和風格，部分音色支援預覽功能，點擊播放按鈕可預覽效果',
+  'roleConfig.tooltip.voiceType':
+    '選擇AI助手說話的聲音，不同音色具有不同的聲音特點和風格，部分音色支援預覽功能，點擊播放按鈕可預覽效果',
 
   // 功能管理對話框文本
   'functionDialog.title': '功能管理',
@@ -965,7 +977,8 @@ export default {
   'modelConfigDialog.setDefault': '設為默認',
   'modelConfigDialog.modelId': '模型ID',
   'modelConfigDialog.enterModelId': '未填冩將自動生成模型ID',
-  'modelConfigDialog.invalidModelId': '模型ID不能為純文字或空格，請使用字母、數字、底線或連字符組合',
+  'modelConfigDialog.invalidModelId':
+    '模型ID不能為純文字或空格，請使用字母、數字、底線或連字符組合',
   'modelConfigDialog.modelName': '模型名稱',
   'modelConfigDialog.enterModelName': '請輸入模型名稱',
   'modelConfigDialog.modelCode': '模型編碼',
@@ -1150,8 +1163,8 @@ export default {
   'templateQuickConfig.cancel': '取消',
   'templateQuickConfig.templateNotFound': '未找到指定模板',
   'templateQuickConfig.newTemplate': '新模板',
-  'warning': '警告',
-  'info': '提示',
+  warning: '警告',
+  info: '提示',
   'common.networkError': '網路請求失敗',
 
   // SM2加密相關錯誤消息
@@ -1288,7 +1301,8 @@ export default {
   'knowledgeBaseDialog.name': '知識庫名稱',
   'knowledgeBaseDialog.namePlaceholder': '請精確輸入知識庫名稱，才能提高知識庫呼叫的準確性',
   'knowledgeBaseDialog.description': '知識庫描述',
-  'knowledgeBaseDialog.descriptionPlaceholder': '請詳細輸入知識庫描述，以便大模型更好地理解這個知識庫的总体內容',
+  'knowledgeBaseDialog.descriptionPlaceholder':
+    '請詳細輸入知識庫描述，以便大模型更好地理解這個知識庫的总体內容',
   'knowledgeBaseDialog.ragModel': 'RAG模型',
   'knowledgeBaseDialog.ragModelPlaceholder': '請選擇RAG模型',
   'knowledgeBaseDialog.ragModelRequired': '請選擇RAG模型',
@@ -1331,7 +1345,8 @@ export default {
   'knowledgeFileUpload.documentNamePlaceholder': '請輸入文檔名稱',
   'knowledgeFileUpload.file': '文件',
   'knowledgeFileUpload.clickToUpload': '點擊上傳',
-  'knowledgeFileUpload.uploadTip': '支持的文件類型：PDF、DOC、DOCX、TXT、MD、CSV、XLS、XLSX、PPT、PPTX，单次批量上傳文件數不超過 32 個，每個文件大小不超過 10MB',
+  'knowledgeFileUpload.uploadTip':
+    '支持的文件類型：PDF、DOC、DOCX、TXT、MD、CSV、XLS、XLSX、PPT、PPTX，单次批量上傳文件數不超過 32 個，每個文件大小不超過 10MB',
   'knowledgeFileUpload.dragOrClick': '將文件拖到此處，或點擊上傳',
   'knowledgeFileUpload.cancel': '取消',
   'knowledgeFileUpload.confirm': '確定',
@@ -1404,7 +1419,8 @@ export default {
 
   // 功能名稱和描述
   'feature.voiceprintRecognition.name': '聲紋識別',
-  'feature.voiceprintRecognition.description': '通過聲紋識別技術驗證用戶身份，提供安全的語音交互體驗',
+  'feature.voiceprintRecognition.description':
+    '通過聲紋識別技術驗證用戶身份，提供安全的語音交互體驗',
   'feature.voiceClone.name': '音色複刻',
   'feature.voiceClone.description': '使用AI技術複刻特定音色，實現個性化語音合成',
   'feature.knowledgeBase.name': '知識庫',
@@ -1520,6 +1536,5 @@ export default {
   'addressBookManagement.hoursAgo': '{hours}小時前',
   'addressBookManagement.daysAgo': '{days}天前',
   'addressBookManagement.monthsAgo': '{months}個月前',
-  'addressBookManagement.yearsAgo': '{years}年前',
-
-}
+  'addressBookManagement.yearsAgo': '{years}年前'
+};

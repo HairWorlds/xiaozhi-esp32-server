@@ -261,7 +261,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     /**
      * 构建配置信息
-     * 
+     *
      * @param config 系统参数列表
      * @return 配置信息
      */
@@ -332,7 +332,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     /**
      * 构建声纹配置信息
-     * 
+     *
      * @param agentId 智能体ID
      * @param result  结果Map
      */
@@ -388,7 +388,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     /**
      * 获取智能体关联的声纹信息
-     * 
+     *
      * @param agentId 智能体ID
      * @return 声纹信息列表
      */
@@ -402,7 +402,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     /**
      * 构建模块配置
-     * 
+     *
      * @param prompt         提示词
      * @param voice          音色
      * @param referenceAudio 参考音频路径
@@ -546,7 +546,7 @@ public class ConfigServiceImpl implements ConfigService {
 
         result.put("selected_module", selectedModule);
         if (StringUtils.isNotBlank(prompt)) {
-            prompt = prompt.replace("{{assistant_name}}", StringUtils.isBlank(assistantName) ? "小智" : assistantName);
+            prompt = prompt.replace("{{assistant_name}}", StringUtils.isBlank(assistantName) ? "小鹿" : assistantName);
         }
         result.put("prompt", prompt);
         result.put("summaryMemory", summaryMemory);

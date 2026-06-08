@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <version>0.0.1</version>
     <name>xiaozhi-esp32-api</name>
-    <description>小智后台管理系统</description>
+    <description>小鹿后台管理系统</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -7,7 +7,9 @@
 ```
 设备A → 授权校验 → MQTT网关 → 设备B远程唤醒 → 建立连接 → 通话建立
 ```
+
 ## 使用这个功能的前提条件
+
 1. 你必须要有至少两个设备，每个设备型号必须是`ESP32-S3`，因为只有`ESP32-S3`才支持远程唤醒功能。
 2. 你的设备必须要有`两个麦克风`。但是如果你的设备只有`单个麦克风`，你只是想体验一下这个功能，也是可以的，但是会有强烈的卡顿感。
 3. 你必须使用[全模块部署](Deployment_all.md)本项目，因为你需要`智控台`来管理设备的权限和通信。
@@ -51,64 +53,66 @@
 
 1. 在[xiaozhi-esp32](https://github.com/78/xiaozhi-esp32) 代码的基础上增加远程唤醒工具MCP，版本支持为2.1.0至2.2.6（2026年5月29日的版本）
 2. 在application.h文件中添加远程唤醒函数声明
-    ```cpp
-    void RemoteWakeup(const std::string& reason);
-    ```
+   ```cpp
+   void RemoteWakeup(const std::string& reason);
+   ```
 3. 在application.cc文件中添加远程唤醒函数
-    ```cpp
-    void Application::RemoteWakeup(const std::string& reason){
-        if (!protocol_) {
-            return;
-        }
 
-        auto state = GetDeviceState();
-        
-        if (state == kDeviceStateIdle) {
-            audio_service_.EncodeWakeWord();
+   ```cpp
+   void Application::RemoteWakeup(const std::string& reason){
+       if (!protocol_) {
+           return;
+       }
 
-            if (!protocol_->IsAudioChannelOpened()) {
-                SetDeviceState(kDeviceStateConnecting);
-                if (!protocol_->OpenAudioChannel()) {
-                    audio_service_.EnableWakeWordDetection(true);
-                    return;
-                }
-            }
-            std::string wake_word = reason;
-    #if CONFIG_USE_AFE_WAKE_WORD || CONFIG_USE_CUSTOM_WAKE_WORD
-            // Encode and send the wake word data to the server
-            while (auto packet = audio_service_.PopWakeWordPacket()) {
-                protocol_->SendAudio(std::move(packet));
-            }
-            // Set the chat state to wake word detected
-            protocol_->SendWakeWordDetected(wake_word);
-            SetListeningMode(aec_mode_ == kAecOff ? kListeningModeAutoStop : kListeningModeRealtime);
-    #else
-            // Set flag to play popup sound after state changes to listening
-            // (PlaySound here would be cleared by ResetDecoder in EnableVoiceProcessing)
-            play_popup_on_listening_ = true;
-            SetListeningMode(aec_mode_ == kAecOff ? kListeningModeAutoStop : kListeningModeRealtime);
-    #endif
-        } else if (state == kDeviceStateSpeaking) {
-            AbortSpeaking(kAbortReasonWakeWordDetected);
-            SetDeviceState(kDeviceStateIdle);
-        } else if (state == kDeviceStateActivating) {
-            SetDeviceState(kDeviceStateIdle);
-        }
-    }
-    ```
+       auto state = GetDeviceState();
+
+       if (state == kDeviceStateIdle) {
+           audio_service_.EncodeWakeWord();
+
+           if (!protocol_->IsAudioChannelOpened()) {
+               SetDeviceState(kDeviceStateConnecting);
+               if (!protocol_->OpenAudioChannel()) {
+                   audio_service_.EnableWakeWordDetection(true);
+                   return;
+               }
+           }
+           std::string wake_word = reason;
+   #if CONFIG_USE_AFE_WAKE_WORD || CONFIG_USE_CUSTOM_WAKE_WORD
+           // Encode and send the wake word data to the server
+           while (auto packet = audio_service_.PopWakeWordPacket()) {
+               protocol_->SendAudio(std::move(packet));
+           }
+           // Set the chat state to wake word detected
+           protocol_->SendWakeWordDetected(wake_word);
+           SetListeningMode(aec_mode_ == kAecOff ? kListeningModeAutoStop : kListeningModeRealtime);
+   #else
+           // Set flag to play popup sound after state changes to listening
+           // (PlaySound here would be cleared by ResetDecoder in EnableVoiceProcessing)
+           play_popup_on_listening_ = true;
+           SetListeningMode(aec_mode_ == kAecOff ? kListeningModeAutoStop : kListeningModeRealtime);
+   #endif
+       } else if (state == kDeviceStateSpeaking) {
+           AbortSpeaking(kAbortReasonWakeWordDetected);
+           SetDeviceState(kDeviceStateIdle);
+       } else if (state == kDeviceStateActivating) {
+           SetDeviceState(kDeviceStateIdle);
+       }
+   }
+   ```
+
 4. 在mcp_server.cc文件中添加远程唤醒工具
-    ```cpp
-    AddUserOnlyTool("self.remote_wakeup", "Remote wakeup function with configurable parameters",
-        PropertyList({
-            Property("reason", kPropertyTypeString, "Wakeup reason"),
-        }),
-        [this](const PropertyList& properties) -> ReturnValue {
-            std::string reason = properties["reason"].value<std::string>();
-            ESP_LOGI(TAG, "Wakeup reason=%s", reason.c_str());
-            auto& app = Application::GetInstance();
-            app.RemoteWakeup(reason);
-            return true;
-    ```
+   ```cpp
+   AddUserOnlyTool("self.remote_wakeup", "Remote wakeup function with configurable parameters",
+       PropertyList({
+           Property("reason", kPropertyTypeString, "Wakeup reason"),
+       }),
+       [this](const PropertyList& properties) -> ReturnValue {
+           std::string reason = properties["reason"].value<std::string>();
+           ESP_LOGI(TAG, "Wakeup reason=%s", reason.c_str());
+           auto& app = Application::GetInstance();
+           app.RemoteWakeup(reason);
+           return true;
+   ```
 5. 按照 [固件编译烧录指南](firmware-build.md) 完成固件烧录
 6. 无论你的设备是单麦还是双麦，请在编译环节，勾选开启AEC功能!
 7. 无论你的设备是单麦还是双麦，请在编译环节，勾选开启AEC功能!
@@ -121,7 +125,7 @@
 
 ## 呼叫流程说明
 
-准备两个设备，在智控台上面配置好通讯权限和在智能体中添加呼叫工具之后，在其中一个小智对话那里对他说：”呼叫XXX“，观察设备B是否响应。
+准备两个设备，在智控台上面配置好通讯权限和在智能体中添加呼叫工具之后，在其中一个小鹿对话那里对他说：”呼叫XXX“，观察设备B是否响应。
 
 ## 常见问题
 
@@ -142,7 +146,7 @@
 - 智控台顶部菜单如显示"通讯录"入口，则表示已开启
 
 ### Q: 我叫他呼叫"张山"，但是他老是识别成"张三"，怎么办？
+
 - 可以查阅你使用的asr服务的文档，确认是否支持热词识别。
 - 如果你用的是`FunASRServer`,可以在容器里的`热词文件`里添加"张山"，然后重启容器。
 - 如果你用的是`火山引擎`的服务，可以在`火山引擎的控制台`里添加`热词文件`，然后回到智控台的`模型配置页面`，把`热词文件名称`配置在`火山引擎的tts`上去。
-

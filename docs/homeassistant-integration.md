@@ -1,8 +1,8 @@
-# 小智ESP32-开源服务端与HomeAssistant集成指南
+# 小鹿ESP32-开源服务端与HomeAssistant集成指南
 
 [TOC]
 
------
+---
 
 ## 简介
 
@@ -23,12 +23,10 @@
 http://192.168.4.7:8123
 ```
 
-> 手动查询 HA 的 IP 地址方法**（仅限小智esp32-server和HA部署在同一个网络设备[例如同一个wifi]下）**：
+> 手动查询 HA 的 IP 地址方法**（仅限小鹿esp32-server和HA部署在同一个网络设备[例如同一个wifi]下）**：
 >
 > 1. 进入 Home Assistant（前端）。
->
 > 2. 点击左下角 **设置（Settings）** → **系统（System）** → **网络（Network）**。
->
 > 3. 滑到最底部`Home Assistant 网址(Home Assistant website)`区域，在`本地网络(local network)`中，点击`眼睛`按钮，可以看到当前使用的 IP 地址（如 `192.168.1.10`）和网络接口。点击`复制连接(copy link)`可以直接复制。
 >
 >    ![image-20250504051716417](images/image-ha-integration-01.png)
@@ -43,7 +41,7 @@ http://homeassistant.local:8123
 
 登录`HomeAssistant`，点击`左下角头像 -> 个人`，切换`安全`导航栏，划到底部`长期访问令牌`生成api_key，并复制保存，后续的方法都需要使用这个api key且仅出现一次（小tips: 您可以保存生成的二维码图像，后续可以扫描二维码再此提取api key）。
 
-## 方法1：小智社区共建的HA调用功能
+## 方法1：小鹿社区共建的HA调用功能
 
 ### 功能描述
 
@@ -58,7 +56,6 @@ http://homeassistant.local:8123
   ```
   http://192.168.4.7:8002
   ```
-
 
 ### 配置步骤
 
@@ -111,11 +108,11 @@ http://homeassistant.local:8123
 
 尝试和esp32说，“打开XXX灯”
 
-## 方法2：小智将Home Assistant的语音助手作为LLM工具
+## 方法2：小鹿将Home Assistant的语音助手作为LLM工具
 
 ### 功能描述
 
-- 该方法有一个比较严重的缺点——**该方法无法使用小智开源生态的function_call插件功能的能力**，因为使用Home Assistant作为小智的LLM工具会将意图识别能力转让给Home Assistant。但是**这个方法是能体验到原生的Home Assistant操作功能，且小智的聊天能力不变**。如实在介意可以使用同样是Home Assistant支持的[方法3](##方法3：使用Home Assistant的MCP服务（推荐）)，能够最大程度体验到Home Assistant的功能。
+- 该方法有一个比较严重的缺点——**该方法无法使用小鹿开源生态的function_call插件功能的能力**，因为使用Home Assistant作为小鹿的LLM工具会将意图识别能力转让给Home Assistant。但是**这个方法是能体验到原生的Home Assistant操作功能，且小鹿的聊天能力不变**。如实在介意可以使用同样是Home Assistant支持的[方法3](##方法3：使用Home Assistant的MCP服务（推荐）)，能够最大程度体验到Home Assistant的功能。
 
 ### 配置步骤：
 
@@ -142,9 +139,9 @@ http://homeassistant.local:8123
 
 ![image-20250504044046466](images/image-ha-integration-05.png)
 
-6. 切换到小智开源服务端`xiaozhi-esp32-server`的`config.yaml`文件内，在LLM配置中，找到Home Assistant，设置您的Home Assistant的网络地址，Api key和刚刚查询到的agent_id。
+6. 切换到小鹿开源服务端`xiaozhi-esp32-server`的`config.yaml`文件内，在LLM配置中，找到Home Assistant，设置您的Home Assistant的网络地址，Api key和刚刚查询到的agent_id。
 7. 修改`config.yaml`文件内的`selected_module`属性的`LLM`为`HomeAssistant`，`Intent`为`nointent`。
-8. 重启小智开源服务端`xiaozhi-esp32-server`即可正常使用。
+8. 重启小鹿开源服务端`xiaozhi-esp32-server`即可正常使用。
 
 ## 方法3：使用Home Assistant的MCP服务（推荐）
 
@@ -152,7 +149,7 @@ http://homeassistant.local:8123
 
 - 需要您提前在Home Assistant内集成并安装好HA集成——[Model Context Protocol Server](https://www.home-assistant.io/integrations/mcp_server/)。
 
-- 这个方法与方法2都是HA官方提供的解决方法，与方法2不同的是，您可以正常使用小智开源服务端`xiaozhi-esp32-server`的开源共建的插件，同时允许您随意使用任何一个支持function_call功能的LLM大模型。
+- 这个方法与方法2都是HA官方提供的解决方法，与方法2不同的是，您可以正常使用小鹿开源服务端`xiaozhi-esp32-server`的开源共建的插件，同时允许您随意使用任何一个支持function_call功能的LLM大模型。
 
 ### 配置步骤
 
@@ -163,22 +160,18 @@ http://homeassistant.local:8123
 或跟随以下手动操作。
 
 > - 前往Home Assistant页面的**[设置 > 设备和服务（Settings > Devices & Services.）](https://my.home-assistant.io/redirect/integrations)**。
->
 > - 在右下角，选择 **[添加集成（Add Integration）](https://my.home-assistant.io/redirect/config_flow_start?domain=mcp_server)**按钮。
->
 > - 从列表中选择**模型上下文协议服务器（Model Context Protocol Server）**。
->
 > - 按照屏幕上的说明完成设置。
 
-#### 2. 配置小智开源服务端MCP配置信息
-
+#### 2. 配置小鹿开源服务端MCP配置信息
 
 进入`data`目录，找到`.mcp_server_settings.json`文件。
 
 如果你的`data`目录下没有`.mcp_server_settings.json`文件，
+
 - 请把在`xiaozhi-server`文件夹根目录的`mcp_server_settings.json`文件复制到`data`目录下，并重命名为`.mcp_server_settings.json`
 - 或[下载这个文件](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/main/xiaozhi-server/mcp_server_settings.json)，下载到`data`目录下，并重命名为`.mcp_server_settings.json`
-
 
 修改`"mcpServers"`里的这部分的内容：
 
@@ -217,10 +210,10 @@ http://homeassistant.local:8123
   }
 ```
 
-#### 3. 配置小智开源服务端的系统配置
+#### 3. 配置小鹿开源服务端的系统配置
 
-1. **选择任意一款支持function_call的LLM大模型作为小智的LLM聊天助手（但不要选择Home Assistant作为LLM工具）**，本次我选择的模型是：免费的ChatGLM，它支持functioncall函数调用，但部分时候调用不太稳定，如果像追求稳定建议把LLM设置成：DoubaoLLM，使用的具体model_name是：doubao-1-5-pro-32k-250115。
+1. **选择任意一款支持function_call的LLM大模型作为小鹿的LLM聊天助手（但不要选择Home Assistant作为LLM工具）**，本次我选择的模型是：免费的ChatGLM，它支持functioncall函数调用，但部分时候调用不太稳定，如果像追求稳定建议把LLM设置成：DoubaoLLM，使用的具体model_name是：doubao-1-5-pro-32k-250115。
 
-2. 切换到小智开源服务端`xiaozhi-esp32-server`的`config.yaml`文件内，设置您的LLM大模型配置，并且将`selected_module`配置的`Intent`调整为`function_call`。
+2. 切换到小鹿开源服务端`xiaozhi-esp32-server`的`config.yaml`文件内，设置您的LLM大模型配置，并且将`selected_module`配置的`Intent`调整为`function_call`。
 
-3. 重启小智开源服务端`xiaozhi-esp32-server`即可正常使用。
+3. 重启小鹿开源服务端`xiaozhi-esp32-server`即可正常使用。

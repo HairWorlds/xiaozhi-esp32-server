@@ -204,7 +204,8 @@ export default {
   'firmwareDialog.firmwareFile': '固件文件',
   'firmwareDialog.clickUpload': '点击上传',
   'firmwareDialog.uploadTip': '只能上传固件文件(.bin/.apk)，且不超过100MB',
-  'firmwareDialog.uploadHint': '温馨提示：请上传合并前的xiaozhi.bin文件，而不是合并后的merged-binary.bin文件',
+  'firmwareDialog.uploadHint':
+    '温馨提示：请上传合并前的xiaozhi.bin文件，而不是合并后的merged-binary.bin文件',
   'firmwareDialog.remark': '备注',
   'firmwareDialog.remarkPlaceholder': '请输入备注信息',
   'firmwareDialog.requiredFirmwareName': '请输入固件名称(板子+版本号)',
@@ -298,7 +299,7 @@ export default {
 
   // 注册页面相关
   'register.title': '创建账号',
-  'register.welcome': '欢迎使用小智AI',
+  'register.welcome': '欢迎使用小鹿AI',
   'register.usernamePlaceholder': '请输入用户名',
   'register.mobilePlaceholder': '请输入手机号码',
   'register.captchaPlaceholder': '请输入验证码',
@@ -560,7 +561,8 @@ export default {
   'cache.notSupported': '您的浏览器不支持Cache API或Service Worker未安装',
   'cache.refreshPage': '刷新页面',
   'cache.noCachedResources': '未发现缓存的CDN资源',
-  'cache.noCachedResourcesDesc': 'Service Worker可能尚未完成初始化或缓存尚未建立。请刷新页面或等待一会后再试。',
+  'cache.noCachedResourcesDesc':
+    'Service Worker可能尚未完成初始化或缓存尚未建立。请刷新页面或等待一会后再试。',
   'cache.cdnCacheStatus': 'CDN资源缓存状态',
   'cache.totalCachedResources': '共发现 {count} 个缓存资源',
   'cache.jsResources': 'JavaScript 资源 ({count})',
@@ -582,7 +584,7 @@ export default {
   'button.close': '关闭',
 
   // 系统信息
-  'system.name': '小智服务',
+  'system.name': '小鹿服务',
 
   // 声纹相关
   'voiceprint.management': '声纹管理',
@@ -715,7 +717,7 @@ export default {
 
   // 首页文本
   'home.addAgent': '添加智能体',
-  'home.greeting': '你好小智',
+  'home.greeting': '你好小鹿',
   'home.wish': '让我们度过美好的一天！',
   'home.languageModel': '语言模型',
   'home.voiceModel': '音色模型',
@@ -807,7 +809,7 @@ export default {
   'roleConfig.vad': '语音活动检测(VAD)',
   'roleConfig.asr': '语音识别(ASR)',
   'roleConfig.llm': '主语言模型(LLM)',
-  "roleConfig.slm": "小参数模型(SLM)",
+  'roleConfig.slm': '小参数模型(SLM)',
   'roleConfig.vllm': '视觉大模型(VLLM)',
   'roleConfig.intent': '意图识别(Intent)',
   'roleConfig.memoryHis': '记忆',
@@ -825,7 +827,8 @@ export default {
   'roleConfig.speedHint': '-100=最慢, 0=标准, 100=最快',
   'roleConfig.pitchHint': '-100=最低, 0=标准, 100=最高',
   'roleConfig.replacementWordLabel': '关联替换词',
-  'roleConfig.replacementWordTip': '语音合成时，强制把识别错、多音字、专有名词、敏感词，替换成你指定的正确文本/发音，提升准确率、合规与体验',
+  'roleConfig.replacementWordTip':
+    '语音合成时，强制把识别错、多音字、专有名词、敏感词，替换成你指定的正确文本/发音，提升准确率、合规与体验',
   'replacementDialog.selectPlaceholder': '请选择',
   'roleConfig.pleaseEnterContent': '请输入内容',
   'roleConfig.pleaseEnterLangCode': '请输入语言编码，如：zh_CN',
@@ -858,21 +861,30 @@ export default {
   // 表单字段 Tooltip 提示说明
   'roleConfig.tooltip.agentName': '设置智能体的名称，用于标识和识别您的AI助手',
   'roleConfig.tooltip.roleTemplate': '从预设的角色模板中选择，快速配置智能体的基础设定',
-  'roleConfig.tooltip.contextProvider': '在小智被唤醒时，获取外部系统的数据，并将其动态注入到大模型的系统提示词中',
+  'roleConfig.tooltip.contextProvider':
+    '在小鹿被唤醒时，获取外部系统的数据，并将其动态注入到大模型的系统提示词中',
   'roleConfig.tooltip.roleIntroduction': '定义AI助手的角色定位、人格特征、行为规范和专业知识背景',
   'roleConfig.tooltip.memoryHis': '总结聊天记录内容',
   'roleConfig.tooltip.languageCode': '设置语言代码，如zh-CN、en-US等，用于特定功能识别',
   'roleConfig.tooltip.interactionLanguage': '设置交互语言，指定AI助手使用的主要语言进行交流',
-  'roleConfig.tooltip.vad': '语音活动检测（Voice Activity Detection）：检测用户何时开始或结束说话，用于判断对话的开始和结束，实现打断功能',
-  'roleConfig.tooltip.asr': '自动语音识别（Automatic Speech Recognition）：将用户的语音转换为文字，是人机对话的第一步，支持多语言识别',
-  'roleConfig.tooltip.llm': '主语言模型（Large Language Model）：AI助手的"大脑"，负责理解用户意图、生成回答和执行各种任务',
-  "roleConfig.tooltip.slm": '小参数模型（Small Language Model）：用于智能体唤醒，生成记忆总结标题',
-  'roleConfig.tooltip.vllm': '视觉大语言模型（Visual LLM）：处理图像和视频理解，使AI助手能够分析和描述摄像头捕获的画面内容',
-  'roleConfig.tooltip.intent': '意图识别（Intent Detection）：分析用户语音或文本，判断用户的真实意图，如查询、聊天、控制设备等',
-  'roleConfig.tooltip.memory': '记忆模型（Memory Model）：管理对话历史的存储和摘要，决定AI能否记住之前的对话内容，实现长期记忆功能',
-  'roleConfig.tooltip.tts': '语音合成（Text-to-Speech）：将文字转换为自然语音，决定AI说话的声音、语速和语调',
+  'roleConfig.tooltip.vad':
+    '语音活动检测（Voice Activity Detection）：检测用户何时开始或结束说话，用于判断对话的开始和结束，实现打断功能',
+  'roleConfig.tooltip.asr':
+    '自动语音识别（Automatic Speech Recognition）：将用户的语音转换为文字，是人机对话的第一步，支持多语言识别',
+  'roleConfig.tooltip.llm':
+    '主语言模型（Large Language Model）：AI助手的"大脑"，负责理解用户意图、生成回答和执行各种任务',
+  'roleConfig.tooltip.slm': '小参数模型（Small Language Model）：用于智能体唤醒，生成记忆总结标题',
+  'roleConfig.tooltip.vllm':
+    '视觉大语言模型（Visual LLM）：处理图像和视频理解，使AI助手能够分析和描述摄像头捕获的画面内容',
+  'roleConfig.tooltip.intent':
+    '意图识别（Intent Detection）：分析用户语音或文本，判断用户的真实意图，如查询、聊天、控制设备等',
+  'roleConfig.tooltip.memory':
+    '记忆模型（Memory Model）：管理对话历史的存储和摘要，决定AI能否记住之前的对话内容，实现长期记忆功能',
+  'roleConfig.tooltip.tts':
+    '语音合成（Text-to-Speech）：将文字转换为自然语音，决定AI说话的声音、语速和语调',
   'roleConfig.tooltip.language': '选择音色所属的语言，系统将筛选出支持该语言的可用音色',
-  'roleConfig.tooltip.voiceType': '选择AI助手说话的声音，不同音色具有不同的声音特点和风格，部分音色支持试听功能，点击播放按钮可预览效果',
+  'roleConfig.tooltip.voiceType':
+    '选择AI助手说话的声音，不同音色具有不同的声音特点和风格，部分音色支持试听功能，点击播放按钮可预览效果',
 
   // 功能管理对话框文本
   'functionDialog.title': '功能管理',
@@ -965,7 +977,8 @@ export default {
   'modelConfigDialog.setDefault': '设为默认',
   'modelConfigDialog.modelId': '模型ID',
   'modelConfigDialog.enterModelId': '未填写将自动生成模型ID',
-  'modelConfigDialog.invalidModelId': '模型ID不能为纯文字或空格，请使用字母、数字、下划线或连字符组合',
+  'modelConfigDialog.invalidModelId':
+    '模型ID不能为纯文字或空格，请使用字母、数字、下划线或连字符组合',
   'modelConfigDialog.modelName': '模型名称',
   'modelConfigDialog.enterModelName': '请输入模型名称',
   'modelConfigDialog.modelCode': '模型编码',
@@ -1150,8 +1163,8 @@ export default {
   'templateQuickConfig.cancel': '取消',
   'templateQuickConfig.templateNotFound': '未找到指定模板',
   'templateQuickConfig.newTemplate': '新模板',
-  'warning': '警告',
-  'info': '提示',
+  warning: '警告',
+  info: '提示',
   'common.networkError': '网络请求失败',
 
   // SM2加密相关错误消息
@@ -1288,7 +1301,8 @@ export default {
   'knowledgeBaseDialog.name': '知识库名称',
   'knowledgeBaseDialog.namePlaceholder': '请精确输入知识库名称，才能提高调用知识库的精准性',
   'knowledgeBaseDialog.description': '知识库描述',
-  'knowledgeBaseDialog.descriptionPlaceholder': '请详细输入知识库描述，以便大模型更好地理解这个知识库的总体内容',
+  'knowledgeBaseDialog.descriptionPlaceholder':
+    '请详细输入知识库描述，以便大模型更好地理解这个知识库的总体内容',
   'knowledgeBaseDialog.ragModel': 'RAG模型',
   'knowledgeBaseDialog.ragModelPlaceholder': '请选择RAG模型',
   'knowledgeBaseDialog.ragModelRequired': '请选择RAG模型',
@@ -1331,7 +1345,8 @@ export default {
   'knowledgeFileUpload.documentNamePlaceholder': '请输入文档名称',
   'knowledgeFileUpload.file': '文件',
   'knowledgeFileUpload.clickToUpload': '点击上传',
-  'knowledgeFileUpload.uploadTip': '支持的文档类型：PDF、DOC、DOCX、TXT、MD、CSV、XLS、XLSX、PPT、PPTX，单次批量上传文件数不超过 32 个',
+  'knowledgeFileUpload.uploadTip':
+    '支持的文档类型：PDF、DOC、DOCX、TXT、MD、CSV、XLS、XLSX、PPT、PPTX，单次批量上传文件数不超过 32 个',
   'knowledgeFileUpload.dragOrClick': '将文件拖到此处，或点击上传',
   'knowledgeFileUpload.cancel': '取消',
   'knowledgeFileUpload.confirm': '确定',
@@ -1404,7 +1419,8 @@ export default {
 
   // 功能名称和描述
   'feature.voiceprintRecognition.name': '声纹识别',
-  'feature.voiceprintRecognition.description': '通过声纹识别技术验证用户身份，提供安全的语音交互体验',
+  'feature.voiceprintRecognition.description':
+    '通过声纹识别技术验证用户身份，提供安全的语音交互体验',
   'feature.voiceClone.name': '音色克隆',
   'feature.voiceClone.description': '使用AI技术克隆特定音色，实现个性化语音合成',
   'feature.knowledgeBase.name': '知识库',
@@ -1520,6 +1536,5 @@ export default {
   'addressBookManagement.hoursAgo': '{hours}小时前',
   'addressBookManagement.daysAgo': '{days}天前',
   'addressBookManagement.monthsAgo': '{months}个月前',
-  'addressBookManagement.yearsAgo': '{years}年前',
-
-}
+  'addressBookManagement.yearsAgo': '{years}年前'
+};

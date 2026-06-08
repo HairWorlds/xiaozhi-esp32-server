@@ -38,15 +38,15 @@ trap 'stty "$old_stty_settings"' EXIT
 echo -e "\e[1;32m"  # 设置颜色为亮绿色
 cat << "EOF"
 脚本作者：@Bilibili 香草味的纳西妲喵
- __      __            _  _  _            _   _         _      _      _        
- \ \    / /           (_)| || |          | \ | |       | |    (_)    | |       
-  \ \  / /__ _  _ __   _ | || |  __ _    |  \| |  __ _ | |__   _   __| |  __ _ 
+ __      __            _  _  _            _   _         _      _      _
+ \ \    / /           (_)| || |          | \ | |       | |    (_)    | |
+  \ \  / /__ _  _ __   _ | || |  __ _    |  \| |  __ _ | |__   _   __| |  __ _
    \ \/ // _` || '_ \ | || || | / _` |   | . ` | / _` || '_ \ | | / _` | / _` |
     \  /| (_| || | | || || || || (_| |   | |\  || (_| || | | || || (_| || (_| |
-     \/  \__,_||_| |_||_||_||_| \__,_|   |_| \_| \__,_||_| |_||_| \__,_| \__,_|                                                                                                                                                                                                                               
+     \/  \__,_||_| |_||_||_||_| \__,_|   |_| \_| \__,_||_| |_||_| \__,_| \__,_|
 EOF
 echo -e "\e[0m"  # 重置颜色
-echo -e "\e[1;36m  小智服务端全量部署一键安装脚本 Ver 0.2 2025年8月20日更新 \e[0m\n"
+echo -e "\e[1;36m  小鹿服务端全量部署一键安装脚本 Ver 0.2 2025年8月20日更新 \e[0m\n"
 sleep 1
 
 
@@ -63,7 +63,7 @@ check_whiptail() {
 check_whiptail
 
 # 创建确认对话框
-whiptail --title "安装确认" --yesno "即将安装小智服务端，是否继续？" \
+whiptail --title "安装确认" --yesno "即将安装小鹿服务端，是否继续？" \
   --yes-button "继续" --no-button "退出" 10 50
 
 # 根据用户选择执行操作
@@ -115,14 +115,14 @@ check_installed() {
     else
         DIR_CHECK=0
     fi
-    
+
     # 检查容器是否存在
     if docker inspect xiaozhi-esp32-server > /dev/null 2>&1; then
         CONTAINER_CHECK=1
     else
         CONTAINER_CHECK=0
     fi
-    
+
     # 两次检查都通过
     if [ $DIR_CHECK -eq 1 ] && [ $CONTAINER_CHECK -eq 1 ]; then
         return 0  # 已安装
@@ -133,13 +133,13 @@ check_installed() {
 
 # 更新相关
 if check_installed; then
-    if whiptail --title "已安装检测" --yesno "检测到小智服务端已安装，是否进行升级？" 10 60; then
+    if whiptail --title "已安装检测" --yesno "检测到小鹿服务端已安装，是否进行升级？" 10 60; then
         # 用户选择升级，执行清理操作
         echo "开始升级操作..."
-        
+
         # 停止并移除所有docker-compose服务
         docker compose -f /opt/xiaozhi-server/docker-compose_all.yml down
-        
+
         # 停止并删除特定容器（考虑容器可能不存在的情况）
         containers=(
             "xiaozhi-esp32-server"
@@ -147,7 +147,7 @@ if check_installed; then
             "xiaozhi-esp32-server-db"
             "xiaozhi-esp32-server-redis"
         )
-        
+
         for container in "${containers[@]}"; do
             if docker ps -a --format '{{.Names}}' | grep -q "^${container}$"; then
                 docker stop "$container" >/dev/null 2>&1 && \
@@ -157,13 +157,13 @@ if check_installed; then
                 echo "容器不存在，跳过: $container"
             fi
         done
-        
+
         # 删除特定镜像（考虑镜像可能不存在的情况）
         images=(
             "ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:server_latest"
             "ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:web_latest"
         )
-        
+
         for image in "${images[@]}"; do
             if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "^${image}$"; then
                 docker rmi "$image" >/dev/null 2>&1 && \
@@ -172,20 +172,20 @@ if check_installed; then
                 echo "镜像不存在，跳过: $image"
             fi
         done
-        
+
         echo "所有清理操作完成"
-        
+
         # 备份原有配置文件
         mkdir -p /opt/xiaozhi-server/backup/
         if [ -f /opt/xiaozhi-server/data/.config.yaml ]; then
             cp /opt/xiaozhi-server/data/.config.yaml /opt/xiaozhi-server/backup/.config.yaml
             echo "已备份原有配置文件到 /opt/xiaozhi-server/backup/.config.yaml"
         fi
-        
+
         # 下载最新版配置文件
         check_and_download "/opt/xiaozhi-server/docker-compose_all.yml" "https://ghfast.top/https://raw.githubusercontent.com/xinnan-tech/xiaozhi-esp32-server/refs/heads/main/main/xiaozhi-server/docker-compose_all.yml"
         check_and_download "/opt/xiaozhi-server/data/.config.yaml" "https://ghfast.top/https://raw.githubusercontent.com/xinnan-tech/xiaozhi-esp32-server/refs/heads/main/main/xiaozhi-server/config_from_api.yaml"
-        
+
         # 启动Docker服务
         echo "开始启动最新版本服务..."
         # 升级完成后标记，跳过后续下载步骤
@@ -213,36 +213,36 @@ fi
 if ! command -v docker &> /dev/null; then
     echo "------------------------------------------------------------"
     echo "未检测到Docker，正在安装..."
-    
+
     # 使用国内镜像源替代官方源
     DISTRO=$(lsb_release -cs)
     MIRROR_URL="https://mirrors.aliyun.com/docker-ce/linux/ubuntu"
     GPG_URL="https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg"
-    
+
     # 安装基础依赖
     apt update
     apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg
-    
+
     # 创建密钥目录并添加国内镜像源密钥
     mkdir -p /etc/apt/keyrings
     curl -fsSL "$GPG_URL" | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    
+
     # 添加国内镜像源
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] $MIRROR_URL $DISTRO stable" \
         > /etc/apt/sources.list.d/docker.list
-    
+
     # 添加备用官方源密钥（避免国内源密钥验证失败）
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8 2>/dev/null || \
     echo "警告：部分密钥添加失败，继续尝试安装..."
-    
+
     # 安装Docker
     apt update
     apt install -y docker-ce docker-ce-cli containerd.io
-    
+
     # 启动服务
     systemctl start docker
     systemctl enable docker
-    
+
     # 检查是否安装成功
     if docker --version; then
         echo "------------------------------------------------------------"
@@ -274,14 +274,14 @@ MIRROR_CHOICE=$(whiptail --title "选择Docker镜像源" --menu "请选择要使
 }
 
 case $MIRROR_CHOICE in
-    1) MIRROR_URL="https://docker.xuanyuan.me" ;; 
-    2) MIRROR_URL="https://mirror.ccs.tencentyun.com" ;; 
-    3) MIRROR_URL="https://docker.mirrors.ustc.edu.cn" ;; 
-    4) MIRROR_URL="https://hub-mirror.c.163.com" ;; 
-    5) MIRROR_URL="https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com" ;; 
-    6) MIRROR_URL="https://registry.aliyuncs.com" ;; 
-    7) MIRROR_URL=$(whiptail --title "自定义镜像源" --inputbox "请输入完整的镜像源URL:" 10 60 3>&1 1>&2 2>&3) ;; 
-    8) MIRROR_URL="" ;; 
+    1) MIRROR_URL="https://docker.xuanyuan.me" ;;
+    2) MIRROR_URL="https://mirror.ccs.tencentyun.com" ;;
+    3) MIRROR_URL="https://docker.mirrors.ustc.edu.cn" ;;
+    4) MIRROR_URL="https://hub-mirror.c.163.com" ;;
+    5) MIRROR_URL="https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com" ;;
+    6) MIRROR_URL="https://registry.aliyuncs.com" ;;
+    7) MIRROR_URL=$(whiptail --title "自定义镜像源" --inputbox "请输入完整的镜像源URL:" 10 60 3>&1 1>&2 2>&3) ;;
+    8) MIRROR_URL="" ;;
 esac
 
 if [ -n "$MIRROR_URL" ]; then
@@ -367,7 +367,7 @@ while true; do
         whiptail --title "错误" --msgbox "服务启动超时，未在指定时间内找到预期日志内容" 10 60
         exit 1
     fi
-    
+
     if docker logs xiaozhi-esp32-server-web 2>&1 | grep -q "Started AdminApplication in"; then
         break
     fi
@@ -389,13 +389,13 @@ SECRET_KEY=$(whiptail --title "配置服务器密钥" --inputbox "请使用超�
 
 if [ -n "$SECRET_KEY" ]; then
     python3 -c "
-import sys, yaml; 
-config_path = '/opt/xiaozhi-server/data/.config.yaml'; 
-with open(config_path, 'r') as f: 
-    config = yaml.safe_load(f) or {}; 
-config['manager-api'] = {'url': 'http://xiaozhi-esp32-server-web:8002/xiaozhi', 'secret': '$SECRET_KEY'}; 
-with open(config_path, 'w') as f: 
-    yaml.dump(config, f); 
+import sys, yaml;
+config_path = '/opt/xiaozhi-server/data/.config.yaml';
+with open(config_path, 'r') as f:
+    config = yaml.safe_load(f) or {};
+config['manager-api'] = {'url': 'http://xiaozhi-esp32-server-web:8002/xiaozhi', 'secret': '$SECRET_KEY'};
+with open(config_path, 'w') as f:
+    yaml.dump(config, f);
 "
     docker restart xiaozhi-esp32-server
 fi
