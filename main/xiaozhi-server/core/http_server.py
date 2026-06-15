@@ -83,6 +83,14 @@ class SimpleHttpServer:
                             "/xiaozhi/device/online",
                             self.device_iot_handler.handle_online_devices,
                         ),
+                        web.get(
+                            "/xiaozhi/device/online-states",
+                            self.device_iot_handler.handle_online_states,
+                        ),
+                        web.get(
+                            "/xiaozhi/device/{mac}/state",
+                            self.device_iot_handler.handle_device_state,
+                        ),
                     ]
                 )
 

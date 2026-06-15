@@ -57,3 +57,30 @@ class DeviceIoTHandler(BaseHandler):
 
     async def handle_online_devices(self, request: web.Request) -> web.Response:
         return web.json_response({"devices": connection_registry.online_devices()})
+
+    async def handle_device_state(self, request: web.Request) -> web.Response:
+        """GET /xiaozhi/device/{mac}/state — 单设备当前 IoT 属性值"""
+        mac = request.match_info["mac"]
+        handler = connection_registry.get(mac)
+        if handler is None:
+            return web.json_response({"success": False, "error": "设备离线"}, status=404)
+
+        state = self._extract_state(handler)
+        return web.json_response({"success": True, "state": state})
+
+    async def handle_online_states(self, request: web.Request) -> web.Response:
+        """GET /xiaozhi/device/online-states — 所有在线设备的状态批量返回"""
+        result = {}
+        for mac in connection_registry.online_devices():
+            handler = connection_registry.get(mac)
+            if handler is not None:
+                result[mac] = self._extract_state(handler)
+        return web.json_response({"success": True, "devices": result})
+
+    @staticmethod
+    def _extract_state(handler) -> dict:
+        """从 ConnectionHandler.iot_descriptors 提取属性名→值的扁平字典"""
+        state = {}
+        for component_name, descriptor in handler.iot_descriptors.items():
+            state[component_name] = {p["name"]: p["value"] for p in descriptor.properties}
+        return state
