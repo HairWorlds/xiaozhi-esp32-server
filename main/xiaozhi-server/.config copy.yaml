@@ -3,7 +3,7 @@
 # 只覆盖需要修改的项，其余从 config.yaml 继承
 # ============================================================
 
-# ── 小鹿服务自身对外 WebSocket 地址（OTA 下发给设备用）─────────
+# ── 小智服务自身对外 WebSocket 地址（OTA 下发给设备用）─────────
 server:
   websocket: wss://tea.iskaola.com/xiaozhi/v1/
 
@@ -12,9 +12,9 @@ close_connection_no_voice_time: 180
 
 # ── 唤醒词 ─────────────────────────────────────────────────
 wakeup_words:
-  - '你好小鹿'
-  - '健康助手'
-  - '开始问诊'
+  - '你好小智'
+  - '小鹿小鹿'
+  - '鹿小鹿'
 
 # ── 退出指令 ────────────────────────────────────────────────
 exit_commands:
@@ -68,7 +68,7 @@ LLM:
     #    base_url: http://117.162.7.154:8088/chat-api/v1
     base_url: http://117.162.7.154:8088/chat-api/v1
     model_name: cloud-medical # shim 层不校验此字段，任意字符串均可
-    api_key: local-dev # MAC 已通过 request.user 动态传递，此处为普通凭证占位
+    api_key: df39abac214aba2ec0dcbbad038a0e9169345c881da0f111
     temperature: 0.5 # 医疗场景降低随机性，减少幻觉（与 CloudV3 服务端保持一致）
     max_tokens: 500
 
