@@ -94,11 +94,14 @@ class DeviceIoTHandler(BaseHandler):
     # ── 批量在线状态 ────────────────────────────────────────────
 
     async def handle_online_states(self, request: web.Request) -> web.Response:
+        online = connection_registry.online_devices()
+        self.logger.bind(tag=TAG).info(f"[DeviceIoT] GET /online-states 被调用，注册表在线设备: {online}")
         result = {}
-        for mac in connection_registry.online_devices():
+        for mac in online:
             handler = connection_registry.get(mac)
             if handler is not None:
                 result[mac] = await self._extract_state_async(handler)
+        self.logger.bind(tag=TAG).info(f"[DeviceIoT] online-states 返回: {list(result.keys())}")
         return web.json_response({"success": True, "devices": result})
 
     # ── 状态提取（MCP 优先 → 本地缓存 → IoT 描述符）─────────────
