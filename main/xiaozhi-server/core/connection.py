@@ -43,7 +43,7 @@ from core.utils.prompt_manager import PromptManager
 from core.utils.voiceprint_provider import VoiceprintProvider
 from core.utils.util import get_system_error_response
 from core.utils import textUtils
-
+from core import connection_registry
 
 TAG = __name__
 
@@ -216,6 +216,9 @@ class ConnectionHandler:
             # 认证通过,继续处理
             self.websocket = ws
 
+            # 注册到全局连接表，供管理 API 推送 IoT 命令
+            connection_registry.register(self.device_id, self)
+
             # 检查是否来自MQTT连接
             request_path = ws.request.path
             self.conn_from_mqtt_gateway = request_path.endswith("?from=mqtt_gateway")
@@ -267,6 +270,7 @@ class ConnectionHandler:
 
     async def _save_and_close(self, ws):
         """保存记忆并关闭连接"""
+        connection_registry.unregister(self.device_id)
         try:
             # 守护线程1：独立生成标题（不依赖记忆模型）
             if self.session_id:

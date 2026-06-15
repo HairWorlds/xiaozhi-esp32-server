@@ -3,6 +3,7 @@ from aiohttp import web
 from config.logger import setup_logging
 from core.api.ota_handler import OTAHandler
 from core.api.vision_handler import VisionHandler
+from core.api.device_iot_handler import DeviceIoTHandler
 
 TAG = __name__
 
@@ -13,6 +14,7 @@ class SimpleHttpServer:
         self.logger = setup_logging()
         self.ota_handler = OTAHandler(config)
         self.vision_handler = VisionHandler(config)
+        self.device_iot_handler = DeviceIoTHandler(config)
 
     def _get_websocket_url(self, local_ip: str, port: int) -> str:
         """获取websocket地址
@@ -71,6 +73,15 @@ class SimpleHttpServer:
                         ),
                         web.options(
                             "/mcp/vision/explain", self.vision_handler.handle_options
+                        ),
+                        # 设备管理：向在线 ESP32 推送 IoT 命令（供 Java 后台调用）
+                        web.post(
+                            "/xiaozhi/device/{mac}/iot-command",
+                            self.device_iot_handler.handle_iot_command,
+                        ),
+                        web.get(
+                            "/xiaozhi/device/online",
+                            self.device_iot_handler.handle_online_devices,
                         ),
                     ]
                 )
