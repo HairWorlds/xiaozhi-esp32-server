@@ -1,0 +1,12 @@
+data/
+models/
+tmp/
+music/
+performance_tester/
+.venv-modelscope/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
