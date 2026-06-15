@@ -107,25 +107,36 @@ class DeviceIoTHandler(BaseHandler):
     # ── 状态提取（MCP 优先 → 本地缓存 → IoT 描述符）─────────────
 
     async def _extract_state_async(self, handler) -> dict:
+        mac = getattr(handler, "device_id", "unknown")
+
         # 1. MCP 设备：调 self.get_device_status 拿实时状态
         mcp = getattr(handler, "mcp_client", None)
-        if mcp is not None and await mcp.is_ready() and mcp.has_tool(_MCP_GET_STATUS_TOOL):
+        mcp_ready = (mcp is not None and await mcp.is_ready())
+        has_tool = mcp_ready and mcp.has_tool(_MCP_GET_STATUS_TOOL)
+        self.logger.bind(tag=TAG).info(
+            f"[DeviceIoT] _extract_state mac={mac} mcp_ready={mcp_ready} has_tool={has_tool}"
+        )
+
+        if has_tool:
             try:
                 from core.providers.tools.device_mcp.mcp_handler import call_mcp_tool
                 raw = await asyncio.wait_for(
                     call_mcp_tool(handler, mcp, _MCP_GET_STATUS_TOOL, "{}"),
                     timeout=3.0,
                 )
+                self.logger.bind(tag=TAG).info(f"[DeviceIoT] MCP get_device_status raw mac={mac}: {raw}")
                 if raw:
                     data = json.loads(raw) if isinstance(raw, str) else {}
                     state = _normalize_mcp_state(data)
+                    self.logger.bind(tag=TAG).info(f"[DeviceIoT] MCP state normalized mac={mac}: {state}")
                     if state:
                         return state
             except Exception as e:
-                self.logger.bind(tag=TAG).debug(f"MCP get_device_status 失败 mac={handler.device_id}: {e}")
+                self.logger.bind(tag=TAG).warning(f"[DeviceIoT] MCP get_device_status 失败 mac={mac}: {e}")
 
         # 2. 本地缓存（我们通过 handle_iot_command 下发过的音量）
         cache = getattr(handler, "_device_state_cache", None)
+        self.logger.bind(tag=TAG).info(f"[DeviceIoT] _device_state_cache mac={mac}: {cache}")
         if cache:
             return dict(cache)
 
@@ -133,6 +144,7 @@ class DeviceIoTHandler(BaseHandler):
         state = {}
         for component_name, descriptor in handler.iot_descriptors.items():
             state[component_name] = {p["name"]: p["value"] for p in descriptor.properties}
+        self.logger.bind(tag=TAG).info(f"[DeviceIoT] iot_descriptors mac={mac}: {state}")
         return state
 
 
